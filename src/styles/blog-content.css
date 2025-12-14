@@ -1,0 +1,72 @@
+/* 🌟 Blog Rendering Styles (Mirror TinyMCE Styles) */
+
+.blog-content  h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 3.333vw, 4rem);
+    line-height: clamp(3.5rem, 1.167vw, 5rem);
+    font-weight: 700;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-main);
+  }
+  
+.blog-content h2 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.75rem, 2.5vw, 3rem);
+  line-height: clamp(2.5rem, 3.333vw, 4rem);
+  font-weight: 600;
+  margin: 1.25rem 0 1rem;
+  color: var(--text-main);
+}
+
+.blog-content h3 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 1.667vw, 2rem);
+  line-height: clamp(2rem, 2.5vw, 3rem);
+  font-weight: 500;
+  margin: 1rem 0 0.75rem;
+  color: var(--text-main);
+}
+
+.blog-content h4 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.25rem, 1.25vw, 1.5rem);
+  line-height: clamp(1.75rem, 1.667vw, 2rem);
+  font-weight: 500;
+  margin: 0.75rem 0 0.5rem;
+  color: var(--text-main);
+}
+
+.blog-content p,
+.blog-content li {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.875rem, 1vw, 1.125rem);
+  line-height: clamp(1.25rem, 2vw, 1.75rem);
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--accent-main);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-family: var(--font-secondary);
+}
+
+.blog-content a {
+  color: var(--primary-main);
+  text-decoration: underline;
+}
+
+.blog-content img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
