@@ -1,21 +1,28 @@
 import { SEO_CONFIG } from "@/lib/seo-config";
 
-// 1. Organization (LegalService) Schema - Global Identity
+// 1. Organization Schema (LegalService)
 export function getOrganizationSchema() {
+  const baseUrl = SEO_CONFIG.siteUrl.replace(/\/$/, "");
+
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "@id": `${SEO_CONFIG.siteUrl}/#organization`,
+    "@id": `${baseUrl}/#organization`,
+
     name: SEO_CONFIG.siteName,
-    url: SEO_CONFIG.siteUrl,
+    url: baseUrl,
+
     logo: {
       "@type": "ImageObject",
-      url: SEO_CONFIG.logo,
-      width: 512, // Explicit dimensions help Google
-      height: 512
+      url: `${baseUrl}${
+        SEO_CONFIG.logo.startsWith("/") ? SEO_CONFIG.logo : ""
+      }`,
+      width: 512,
+      height: 512,
     },
-    foundingDate: "2010", // Added as per audit
-    sameAs: [SEO_CONFIG.social.linkedin, SEO_CONFIG.social.facebook],
+
+    description: SEO_CONFIG.description,
+
     address: {
       "@type": "PostalAddress",
       streetAddress: SEO_CONFIG.contact.address.street,
@@ -24,32 +31,43 @@ export function getOrganizationSchema() {
       postalCode: SEO_CONFIG.contact.address.postalCode,
       addressCountry: SEO_CONFIG.contact.address.country,
     },
-    // Added GeoCoordinates for Local SEO
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 26.4499,
-      longitude: 80.3319
-    },
+
     areaServed: {
       "@type": "City",
-      name: "Kanpur"
+      name: "Kanpur",
     },
+
     telephone: SEO_CONFIG.contact.phone,
     email: SEO_CONFIG.contact.email,
-    priceRange: "$$",
+
+    priceRange: "₹₹",
+
+    sameAs: [
+      SEO_CONFIG.social.LinkedIn,
+      SEO_CONFIG.social.Facebook,
+      SEO_CONFIG.social.Instagram,
+      SEO_CONFIG.social.YouTube,
+    ].filter(Boolean),
   };
 }
-
-// 2. WebPage Schema - For every standard page
-export function getWebPageSchema({ title, description, url, type = "WebPage" }) {
+// 2. WebPage Schema
+export function getWebPageSchema({
+  title,
+  description,
+  url,
+  type = "WebPage",
+}) {
   return {
     "@context": "https://schema.org",
     "@type": type,
+    "@id": `${url}#webpage`,
     url: url,
     name: title,
     description: description,
     inLanguage: "en-IN",
-    isPartOf: { "@id": `${SEO_CONFIG.siteUrl}/#organization` },
+    isPartOf: {
+      "@id": `${SEO_CONFIG.siteUrl.replace(/\/$/, "")}/#organization`,
+    },
   };
 }
 
@@ -61,11 +79,12 @@ export function getWebsiteSchema() {
     "@type": "WebSite",
     url: SEO_CONFIG.siteUrl,
     name: SEO_CONFIG.siteName,
-    publisher: { "@id": `${SEO_CONFIG.siteUrl}/#organization` }
+    publisher: { "@id": `${SEO_CONFIG.siteUrl}/#organization` },
   };
 }
 
 // 4. Breadcrumbs - Updated to use @id for items
+// 3. Breadcrumb Schema
 export function getBreadcrumbSchema(items) {
   return {
     "@context": "https://schema.org",
@@ -74,7 +93,7 @@ export function getBreadcrumbSchema(items) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: { "@id": item.url } // Improved format
+      item: item.url,
     })),
   };
 }
@@ -96,7 +115,14 @@ export function getFAQSchema(faqs) {
 }
 
 // 6. Person Schema - Updated with description
-export function getPersonSchema({ name, jobTitle, image, url, sameAs = [], description }) {
+export function getPersonSchema({
+  name,
+  jobTitle,
+  image,
+  url,
+  sameAs = [],
+  description,
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
