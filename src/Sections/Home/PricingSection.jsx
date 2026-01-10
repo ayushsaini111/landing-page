@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 import PricingCard from "@/components/ui/Pricing";
 
 export default function PricingSection() {
-    const data = Data.homePage.pricingSection;
+    const data = Data.pricingSection;
     const pricingList = data.pricing;
 
     return (

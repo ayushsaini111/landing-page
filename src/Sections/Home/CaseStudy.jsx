@@ -3,13 +3,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 import AnimatedGavelIcon from "@/components/AnimatedGavelIcon";
 
 const MODAL_DURATION = 450;
 
 export default function CaseStudy() {
-    const { caseStudies } = Data.homePage.servicesSection;
+    const { caseStudies } = Data.servicesSection;
 
     const [open, setOpen] = useState(false);
     const [activeCase, setActiveCase] = useState(null);

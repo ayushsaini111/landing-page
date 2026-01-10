@@ -1,0 +1,23 @@
+{
+    "pageTitle": "Our Team",
+    "description": "A Professional Legal Team Focused on Clarity and Structured Guidance",
+    "section1": {
+        "heading": "A Professional Legal Team Focused on Clarity and Structured Guidance",
+        "content": "Arshiv Legal operates with a clear, disciplined approach to every matter. Our work combines careful legal assessment, responsible interpretation of statutes, and well-prepared procedural steps so clients always know where they stand and what comes next. The practice is led from the front by a dedicated legal professional who interacts directly with clients, supported by a streamlined internal system that keeps every case organised, researched, and ready for action when required."
+    },
+    "teamMember": [
+        {
+            "dpImage": "/Images/aryan.png",
+            "heading": "Aryan Pandey — Principal Legal Professional",
+            "content": "As the primary face of Arshiv Legal, he oversees the evaluation of matters, examines factual positions, and interprets the legal questions involved with precision. His approach is grounded in structured reasoning and clarity, ensuring clients receive guidance that is both practical and aligned with the law. He works closely with the internal workflow that manages background preparation, document accuracy, procedural checks, and communication with external advocates whenever deeper intervention is needed."
+        }
+    ],
+    "section3": {
+        "heading": "How the Practice Functions",
+        "content": "While clients interact primarily with the principal professional, the overall system is designed to function like a coordinated legal setup. Background work supports the front-end guidance, ensuring that matters are reviewed properly, facts are verified, and procedural steps are prepared without rush or ambiguity. This allows Arshiv Legal to maintain both accuracy and efficiency, even in time-sensitive situations."
+    },
+    "section4": {
+        "heading": "Resolved Cases & Experiences",
+        "content": "*An outline of legal matters we have handled, supported by client feedback."
+    }
+}

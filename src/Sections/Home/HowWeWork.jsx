@@ -3,18 +3,18 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ServiceCardSmallll } from "@/components/ui/ServiceCard";
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { heading, description, footerNote } = Data.homePage.howWeWork;
+const { heading, description, footerNote } = Data.howWeWork;
 
 export default function HowWeWork() {
     const sectionRef = useRef(null);
     const sliderWrapperRef = useRef(null);
     const sliderRef = useRef(null);
 
-    const steps = Data.homePage.howWeWork.steps;
+    const steps = Data.howWeWork.steps;
 
     useLayoutEffect(() => {
         const section = sectionRef.current;

@@ -24,6 +24,9 @@ export default function Navbar() {
     const toggleMenu = () => setIsMenuOpen((prev) => !prev);
     const closeMenu = () => setIsMenuOpen(false);
 
+    useEffect(() => {
+        setOpenDropdown(false);
+    }, [pathname]);
 
 
     return (
@@ -36,7 +39,7 @@ export default function Navbar() {
                     alt="Logo"
                     height={40}
                     width={121}
-                    className="h-10 md:h-[50px] lg:h-[60px] w-fit"
+                    className=""
                 />
             </Link>
 
@@ -56,13 +59,13 @@ export default function Navbar() {
                             }}
                         >
                             {isServices ? (
-                                <button className="flex items-center gap-s6 p-s6 transition text-text-main hover:text-accent-main">
+                                <Link href={item.href} className="flex items-center gap-s6 p-s6 transition text-text-main hover:text-accent-main">
                                     {item.label}
                                     <ChevronDown
                                         className={`w-s16 h-s16 transition-transform duration-300 ${openDropdown ? "rotate-180" : ""
                                             }`}
                                     />
-                                </button>
+                                </Link>
                             ) : (
                                 <Link
                                     href={item.href}
@@ -112,11 +115,11 @@ export default function Navbar() {
                                         <Link
                                             key={service.href}
                                             href={service.href}
+                                            onClick={() => setOpenDropdown(false)}   // ✅ CLOSE DROPDOWN
                                             className="
-        body-default block rounded-r8 px-s12 py-s6
-        text-background opacity-90 hover:opacity-100
-        hover:text-secondary-light transition
-        "
+                                            body-default block rounded-r8 px-s12 py-s6 
+                                            text-background opacity-90 hover:opacity-100 
+                                            hover:text-secondary-light transition"
                                         >
                                             {service.label}
                                             <span className="caption font-extrabold ml-1">

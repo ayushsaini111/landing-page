@@ -22,7 +22,7 @@ export const services = {
   "ADMINISTRATIVE LAW": [
     {
       label: "Government Document & Licensing Issues",
-      href: "/services/government-document-&-licensing-issues",
+      href: "/services/government-document-licensing-issues",
     },
     {
       label: "Challenges Against Government Orders",
@@ -44,11 +44,11 @@ export const services = {
   "PROPERTY LAW": [
     {
       label: "Property Transfer & Registration",
-      href: "/services/property-transfer-&-registration",
+      href: "/services/property-transfer-registration",
     },
     {
       label: "Land Ownership & Title Verification",
-      href: "/services/land-ownership-&-title-verification",
+      href: "/services/land-ownership-title-verification",
     },
   ],
 
@@ -59,7 +59,7 @@ export const services = {
     },
     {
       label: "Cheating, Threats & Harassment Cases",
-      href: "/services/cheating,-threats-&-harassment-cases",
+      href: "/services/cheating-threats-harassment-cases",
     },
   ],
 

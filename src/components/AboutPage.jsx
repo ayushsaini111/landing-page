@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Data from "@/Data/data.json";
+import Data from "@/Data/About.json";
 import Gradient from "./ui/Gradient";
 import HowWeWork from "@/Sections/Home/HowWeWork";
 
 export default function AboutSection() {
     // ✔ Correct JSON path
-    const { about } = Data;
+    const about  = Data;
 
     if (!about) return <p>About data missing.</p>;
 

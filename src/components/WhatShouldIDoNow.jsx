@@ -15,8 +15,8 @@ function slugify(str) {
 
 export default async function WhatShouldIDoNow() {
     // Dynamically import the JSON at render time (keeps module-level bundle smaller)
-    const { default: Data } = await import('@/Data/data.json');
-    const whatShouldIDoNow = Data?.whatShouldIDoNow;
+    const { default: Data } = await import('@/Data/WhatShouldIDoNow.json');
+    const whatShouldIDoNow = Data;
 
     if (!whatShouldIDoNow) {
         return <p className="text-red-main p-s32">Data not found.</p>;

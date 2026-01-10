@@ -1,0 +1,47 @@
+{
+    "title": "About",
+    "description": "Arshiv Legal provides structured legal information in a format that is easy to understand and suitable for preliminary assessment. The platform explains legal concepts, common procedures, and practical implications in plain language so that individuals can interpret their situation accurately before taking any formal step.  All content is prepared to maintain consistency with statutory principles, commonly followed procedures, and real-world application.",
+    "aboutSection": {
+        "mission": {
+            "title": "Our Mission",
+            "description": "To present legal information in a simplified and accessible format, enabling individuals to understand the essential elements of their situation and the general procedural framework that may apply."
+        },
+        "whatWeDo": {
+            "title": "What We Do",
+            "description": "Arshiv Legal offers well-organised legal information, including:",
+            "points": [
+                "Simplified explanations of legal concepts and procedures",
+                "Step-based outlines for commonly encountered legal situations",
+                "Scenario-based insights that reflect practical legal outcomes",
+                "Direct guidance on preliminary steps to consider",
+                "Information designed to support responsible decision-making at the initial stage"
+            ],
+            "footerNote": "Each resource is developed with a focus on accuracy, structure, and practical relevance."
+        },
+        "howWeHelp": {
+            "title": "How We Help",
+            "description": "Our platform assists users in understanding:",
+            "points": [
+                "The nature and implications of the issue they are dealing with",
+                "Applicable rights, obligations, and potential risks",
+                "Procedural routes commonly followed in similar situations",
+                "Suitable first responses before engaging in any formal process"
+            ],
+            "footerNote": "This enables individuals to approach their circumstances with a foundational understanding of the legal framework involved."
+        },
+        "whyArshivLegal": {
+            "title": "Why Arshiv Legal",
+            "description": "Legal processes often appear technical and difficult to interpret. Arshiv Legal bridges this gap by presenting legally aligned information in an organised, non-technical manner. This helps individuals review their position and avoid premature or inappropriate actions."
+        },
+        "ourAssurance": {
+            "title": "Our Assurance",
+            "points": [
+                "Information presented in plain and accurate terms",
+                "No promotional language or exaggerated claims",
+                "No unnecessary jargon or ambiguity",
+                "Content designed strictly for preliminary understanding, not legal representation"
+            ],
+            "footerNote": "Arshiv Legal functions as a structured legal-information platform aimed at supporting informed and responsible initial decision-making."
+        }
+    }
+}

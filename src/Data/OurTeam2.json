@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "Our Team",
+    "subtitle": "With clear legal insight and swift, reliable guidance, Arshiv Legal helps you act early — while the case is still in your hands and your options are open."
+  },
+
+  "intro": {
+    "heading": "A Professional Legal Team Focused on Clarity and Structured Guidance",
+    "description": "Arshiv Legal operates with a clear, disciplined approach to every matter. Our work combines careful legal assessment, responsible interpretation of statutes, and well-prepared procedural steps so clients always know where they stand and what comes next. The practice is led from the front by a dedicated legal professional who interacts directly with clients, supported by a streamlined internal system that keeps every case organised, researched, and ready for action when required."
+  },
+
+  "leadProfile": {
+    "name": "Aryan Pandey",
+    "role": "Principal Legal Professional",
+    "image": "/Images/aryan.png",
+    "description":"As the primary face of Arshiv Legal, he oversees the evaluation of matters, examines factual positions, and interprets the legal questions involved with precision."
+  },
+
+  "infoCards": [
+    {
+      "title": "How the Practice Functions",
+      "description": "While clients interact primarily with the principal professional, the overall system is designed to function like a coordinated legal support structure. Each matter moves through a defined pipeline where facts are reviewed carefully, positions are analysed, and procedural steps are prepared without confusion or delay. This ensures accuracy, consistency, and efficiency across all matters."
+    },
+    {
+      "title": "Why Clients Trust Us",
+      "description": "Our focus remains on clear communication, sound legal understanding, and responsible guidance. We avoid unnecessary jargon, provide straightforward explanations, and ensure that every step suggested is lawful, reasoned, and practical. Clients value the calm, structured, and dependable way in which their concerns are handled."
+    }
+  ]
+}

@@ -1,143 +1,133 @@
 // /src/app/services/property-disputes/page.jsx
-import React from 'react';
-import SubServicePage from '@/components/SubServicePage';
-import FaqSection from '@/components/FaqSection';
-import JsonLd from '@/components/JsonLd';
-import { SEO_CONFIG } from '@/lib/seo-config';
-import { canonicalize } from '@/utils/canonical';
+import React from "react";
+import SubServicePage from "@/components/SubServicePage";
+import FaqSection from "@/components/FaqSection";
+import JsonLd from "@/components/JsonLd";
+import { SEO_CONFIG } from "@/lib/seo-config";
+import { canonicalize } from "@/utils/canonical";
 import {
   getWebPageSchema,
   getBreadcrumbSchema,
   getOrganizationSchema,
   getFAQSchema,
-} from '@/utils/schema';
+} from "@/utils/schema";
 
 export const revalidate = 60;
 
 // ------------------------------------
-// ⭐ DYNAMIC METADATA (Correct Method)
+// Dynamic Metadata
 // ------------------------------------
 export async function generateMetadata() {
-  const { default: Data } = await import('@/Data/data.json');
-  const data = Data?.subServices?.propertyDisputes ?? null;
+  const { default: Data } = await import("@/Data/SubServices.json");
+  const data = Data?.propertyDisputes ?? null;
 
   const title = data
     ? `${data.title} — Arshiv Legal`
-    : 'Property Disputes — Arshiv Legal';
+    : "Property Disputes — Arshiv Legal";
 
   const description =
     data?.description ||
-    'Property disputes: resolve ownership, possession and boundary conflicts with clear legal guidance and practical routes for resolution.';
+    "Property disputes involving ownership, possession, encroachment, and boundary conflicts. Get clear legal guidance and practical resolution routes.";
 
   return {
     title,
     description,
     keywords: [
-      'property disputes',
-      'land ownership',
-      'encroachment',
-      'boundary dispute',
-      'family partition dispute',
-      'Arshiv Legal Kanpur',
+      "property disputes",
+      "land ownership dispute",
+      "encroachment",
+      "boundary dispute",
+      "family partition dispute",
+      "property lawyer kanpur",
     ],
     alternates: {
-      canonical: canonicalize('/services/property-disputes'),
+      canonical: canonicalize("/services/property-disputes"),
     },
     openGraph: {
       title,
       description,
-      url: canonicalize('/services/property-disputes'),
+      url: canonicalize("/services/property-disputes"),
       siteName: SEO_CONFIG.siteName,
-      type: 'article',
+      type: "article",
       images: [
         {
-          url: `${SEO_CONFIG.siteUrl}/images/property-disputes-og.jpg`,
+          url: "/og-default.jpg",
           width: 1200,
           height: 630,
-          alt: 'Property Disputes - Arshiv Legal',
+          alt: "Property Disputes - Arshiv Legal",
         },
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
-      images: [`${SEO_CONFIG.siteUrl}/images/property-disputes-og.jpg`],
+      images: ["/og-default.jpg"],
     },
     robots: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
     },
   };
 }
+
 export default async function Page() {
-    const { default: Data } = await import('@/Data/data.json');
-  const data = Data?.subServices?.propertyDisputes ?? null;
+  const { default: Data } = await import("@/Data/SubServices.json");
+  const data = Data?.propertyDisputes ?? null;
 
-    if (!data) {
-        return (
-            <main className="mx-auto max-w-7xl px-4 py-20">
-                <section>
-                    <p className="text-red-main p-s16">Content not available right now. Please check back later.</p>
-                </section>
-            </main>
-        );
-    }
+  if (!data) {
+    return (
+      <main className="mx-auto max-w-7xl px-4 py-20">
+        <p className="text-red-main p-s16">
+          Content not available right now. Please check back later.
+        </p>
+      </main>
+    );
+  }
 
-    const faqs = Array.isArray(data.faqs) ? data.faqs : [];
-    const covers = data.whatThisServiceCovers ?? {};
-    const cards = Array.isArray(covers.cards) ? covers.cards : [];
+  const faqs = Array.isArray(data.faqs) ? data.faqs : [];
+  const covers = data.whatThisServiceCovers ?? {};
+  const cards = Array.isArray(covers.cards) ? covers.cards : [];
 
-    const title = `${data.title} — Arshiv Legal`;
-  const description = data.description;
-
+  // -------------------------------
+  // JSON-LD
+  // -------------------------------
   const pageSchema = getWebPageSchema({
-    title,
-    description,
-    url: canonicalize('/services/property-disputes'),
-    type: 'Service',
+    title: `${data.title} — Arshiv Legal`,
+    description: data.description,
+    url: canonicalize("/services/property-disputes"),
+    type: "Service",
   });
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'Home', url: canonicalize('/') },
-    { name: 'Legal Services', url: canonicalize('/legal-services') },
-    { name: data.title, url: canonicalize('/services/property-disputes') },
+    { name: "Home", url: canonicalize("/") },
+    { name: "Legal Services", url: canonicalize("/legal-services") },
+    { name: data.title, url: canonicalize("/services/property-disputes") },
   ]);
 
   const organizationSchema = getOrganizationSchema();
 
-  const subServiceNames = cards.map((card) => card.title).filter(Boolean);
-
   const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+    "@context": "https://schema.org",
+    "@type": "Service",
     name: data.title,
+    serviceType: "Property Disputes",
     description: data.description,
-    serviceType: 'Property Disputes',
     provider: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: SEO_CONFIG.siteName,
       url: SEO_CONFIG.siteUrl,
       logo: SEO_CONFIG.logo,
-      sameAs: [
-        SEO_CONFIG.social.linkedin,
-        SEO_CONFIG.social.facebook,
-        SEO_CONFIG.social.twitter,
-      ].filter(Boolean),
     },
     availableChannel: {
-      '@type': 'ServiceChannel',
-      serviceUrl: canonicalize('/contact-us'),
+      "@type": "ServiceChannel",
+      serviceUrl: canonicalize("/contact-us"),
     },
-    serviceOutput: subServiceNames.map((name) => ({
-      '@type': 'Thing',
-      name,
+    serviceOutput: cards.map((c) => ({
+      "@type": "Thing",
+      name: c.title,
     })),
-    url: canonicalize('/services/property-disputes'),
+    url: canonicalize("/services/property-disputes"),
   };
 
   const faqSchema =
@@ -158,21 +148,22 @@ export default async function Page() {
     ...(faqSchema ? [faqSchema] : []),
   ];
 
-    return (
-        <main className="space-y-s40 lg:space-y-s64">
-            <JsonLd data={ld} />
-            <section className="flex flex-col gap-s40 md:gap-s64">
-                <SubServicePage
-                    title={data.title ?? ''}
-                    description={data.description ?? ''}
-                    covers={covers}
-                    cards={cards}
-                />
+  return (
+    <main className="space-y-s40 lg:space-y-s64">
+      <JsonLd data={ld} />
 
-                <div className="w-full mx-auto max-w-7xl px-s16 md:px-s32">
-                    <FaqSection faqs={faqs} />
-                </div>
-            </section>
-        </main>
-    );
+      <section className="flex flex-col gap-s40 md:gap-s64">
+        <SubServicePage
+          title={data.title}
+          description={data.description}
+          covers={covers}
+          cards={cards}
+        />
+
+        <div className="w-full mx-auto max-w-7xl px-s16 md:px-s32">
+          <FaqSection faqs={faqs} />
+        </div>
+      </section>
+    </main>
+  );
 }

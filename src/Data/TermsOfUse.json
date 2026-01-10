@@ -1,0 +1,98 @@
+{
+    "title": "Terms of use",
+    "effectiveDate": "November 2025",
+    "website": "www.arshivlegal.com",
+    "entity": "Arshiv Legal",
+    "sections": [
+        {
+            "title": "1. Acceptance of Terms",
+            "content": [
+                "By accessing or using this website (hereinafter referred to as “the Site”), you acknowledge that you have read, understood, and agree to be bound by these Terms of use (\"Terms\").",
+                "If you do not consent to these Terms, you are advised to discontinue use immediately.",
+                "Arshiv Legal reserves the absolute right to revise, amend, or replace any part of these Terms at its sole discretion. Continued use of the Site shall constitute acceptance of such revisions."
+            ]
+        },
+        {
+            "title": "2. Purpose and Scope of Use",
+            "placeholder": "Privacy Policy",
+            "link": "/privacy-policy",
+            "part1": "For all data protection, communication, and consent-related provisions, please refer to our ",
+            "part2": ", which forms an integral part of these Terms.",
+            "content": [
+                "The Site and all content made available herein are intended solely for general informational and educational purposes.",
+                "Nothing contained on this Site shall be construed as formal legal advice, legal opinion, or the creation of an attorney–client relationship.",
+                "The content is presented in simplified language to aid understanding of legal topics and should not be relied upon for decision-making in specific matters."
+            ]
+        },
+        {
+            "title": "3. Intellectual Property",
+            "content": [
+                "Unless otherwise expressly stated, all intellectual property rights, including but not limited to text, graphics, design, logos, and media content appearing on this Site, are the sole and exclusive property of Arshiv Legal.",
+                "No part of the Site may be copied, reproduced, modified, republished, distributed, or used in any form without prior written permission.",
+                "Permitted use is strictly limited to personal, non-commercial purposes, provided that original context and credit to Arshiv Legal are maintained."
+            ]
+        },
+        {
+            "title": "4. User Obligations",
+            "content": [
+                "By accessing or interacting with the Site, you hereby agree to:",
+                [
+                    "Use the Site in a lawful and responsible manner.",
+                    "Refrain from posting, transmitting, or uploading any unlawful, defamatory, or infringing content.",
+                    "Avoid attempting to disrupt, interfere with, or gain unauthorized access to any part of the Site or its servers."
+                ],
+                "Arshiv Legal reserves the right to restrict access or initiate legal action against any activity deemed harmful, misleading, or detrimental to its interests or reputation."
+            ]
+        },
+        {
+            "title": "5. Limitation of Liability",
+            "content": [
+                "The Site and all content are provided on an “as-is” and “as-available” basis.",
+                "While reasonable efforts are made to maintain accuracy and reliability, Arshiv Legal makes no warranties or representations, express or implied, as to the completeness, accuracy, or correctness of the information provided herein.",
+                "To the fullest extent permitted by applicable law, Arshiv Legal and its affiliates shall not be liable for any loss, damage, or consequence arising from your use or reliance upon the Site, whether direct, indirect, incidental, or consequential."
+            ]
+        },
+        {
+            "title": "6. Third-Party Links",
+            "content": [
+                "This Site may contain references or hyperlinks to external websites or resources for convenience and informational purposes.",
+                "Arshiv Legal does not endorse, control, or assume responsibility for the content, policies, or practices of any such third-party websites.",
+                "Users are advised to review the respective terms and privacy policies of those external sources before interacting with them."
+            ]
+        },
+        {
+            "title": "7. Amendments and Termination",
+            "content": [
+                "Arshiv Legal reserves the right to modify, suspend, or discontinue any part of the Site or these Terms at any time, without prior notice.",
+                "Any such modifications shall become effective upon posting.",
+                "You are encouraged to review this page periodically to remain informed of the current version."
+            ]
+        },
+        {
+            "title": "8. Governing Law and Jurisdiction",
+            "content": [
+                "These Terms shall be governed by and construed in accordance with the laws of India.",
+                "Any disputes or claims arising from or in connection with these Terms or the use of this Site shall fall under the exclusive jurisdiction of the courts located in [Insert City/State, e.g., Delhi, India]."
+            ]
+        },
+        {
+            "title": "9. Contact Information",
+            "colored": "arshivlegal@gmail.com",
+            "content": [
+                "For any clarifications, permissions, or concerns regarding these Terms of use, please contact us:"
+            ]
+        },
+        {
+            "title": "10. Acknowledgment",
+            "part10": [
+                "By continuing to access or use this Site, you affirm that you have read and understood these Terms of use, along with our  and Legal Disclaimer "
+            ],
+            "placeholder1": "Privacy Policy",
+            "link1": "/privacy-policy",
+            "part11": "and",
+            "placeholder2": "Legal Disclaimer",
+            "link2": "legal-disclaimer",
+            "part12": ", and that you agree to be bound by them in full."
+        }
+    ]
+}

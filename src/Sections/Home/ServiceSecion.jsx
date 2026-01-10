@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 import Button from "@/components/ui/Button";
 import ServiceCard from "@/Sections/Home/ServiceCard";
 import { services } from "@/Data/Navlink";
 
 export default function ServicesSection() {
     // make sure the path exists in your data.json
-    const { topHeading, arrow, tabs, ...laws } = Data.homePage.servicesSection;
+    const { topHeading, arrow, tabs, ...laws } = Data.servicesSection;
     const [activeTab, setActiveTab] = useState(tabs?.[0]?.slug || "public-law");
     // convert "criminal-law" → "criminalLaw"
     const toCamel = (slug) => slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());

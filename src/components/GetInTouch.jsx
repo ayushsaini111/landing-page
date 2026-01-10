@@ -5,6 +5,7 @@ export default function GetInTouch({
     variant = "blue",
     title,
     subtitle,
+    text
 }) {
     const isBlue = variant === "blue";
 
@@ -38,9 +39,9 @@ export default function GetInTouch({
                 variant="ctaSecondary"
                 as="link"
                 href="/contact-us"
-            >
-                Get in touch
-            </Button>
+                children={text|| "Get in touch"}
+            />
+            
         </section>
     );
 }

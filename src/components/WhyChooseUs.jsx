@@ -1,9 +1,9 @@
 "use client";
 
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 
 export default function WhyChooseUs() {
-    const { whyChooseUs } = Data.homePage;
+    const { whyChooseUs } = Data;
     if (!whyChooseUs) return null;
     return (
         <section
@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
                 {whyChooseUs.points.map((p, index) => (
                     <p
                         key={index}
-                        className="body-large text-main "
+                        className="body-default text-main "
                     >
                         {p}
                     </p>

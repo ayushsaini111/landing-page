@@ -1,0 +1,47 @@
+{
+    "title": "Contact us",
+    "subtitle": "Get experienced legal advice now",
+    "description": "If you or a loved one has been injured in an accident or are dealing with an insurance dispute, our experienced attorneys are here to help.",
+    "address": {
+        "title": "Address",
+        "line1": "Hanuman Vihar",
+        "line2": "Naubasta, Kanpur",
+        "line3": "U.P",
+        "phoneTitle": "Phone",
+        "phoneNumber": "+91 8853632011"
+    },
+    "form": {
+        "title": "Contact Form",
+        "fields": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "query": "Case Query"
+        },
+        "privacyText": "We value your privacy. Read our Privacy Policy to learn how we handle your data.",
+        "privacyLink": "Read our Privacy Policy",
+        "submitText": "Submit"
+    },
+    "map": {
+        "title": "Our Location",
+        "embedUrl": "https://www.google.com/maps?q=26.40484,80.31194&z=15&output=embed"
+    },
+    "faqs": [
+        {
+            "question": "What details should I share about my legal issue during the first contact?",
+            "answer": "Only share essential facts—timeline, parties involved, and current status. You don’t need to send documents unless specifically requested after review."
+        },
+        {
+            "question": "Is my communication protected under lawyer–client confidentiality?",
+            "answer": "Yes. All information you share, even before onboarding, is treated as confidential legal communication."
+        },
+        {
+            "question": "What if I need urgent assistance due to police involvement?",
+            "answer": "Mention “URGENT – POLICE MATTER” in your message. We prioritise such cases and guide you on immediate legal steps."
+        },
+        {
+            "question": "Can I book a consultation before deciding to proceed legally?",
+            "answer": "Yes. You may request a consultation to get clarity on the law, procedure, timeline, and expected approach before taking any major legal step."
+        }
+    ]
+}

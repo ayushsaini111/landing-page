@@ -1,9 +1,9 @@
 "use client";
-import Data from "@/Data/data.json";
+import Data from "@/Data/HomePage.json";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
-    const hero = Data?.homePage?.heroSection;
+    const hero = Data?.heroSection;
     if (!hero) return null;
 
     return (
@@ -18,9 +18,9 @@ export default function Hero() {
                             src="/Images/hero-m.mp4"
 
                             autoPlay
-                        loop
-                        muted
-                        playsInline
+                            loop
+                            muted
+                            playsInline
                             alt="Lady Justice"
                             className="w-full h-[400px] object-cover scale-[1.35] origin-top"
                         />
@@ -40,13 +40,13 @@ export default function Hero() {
                     <p className="body-large text-secondary">
                         {hero.subHeading}
                     </p>
-                    <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us"/>
+                    <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us" />
                 </div>
             </div>
 
 
             {/* -------------------- DESKTOP VIEW -------------------- */}
-            <div className="hidden lg:flex max-w-[1600px] mx-auto items-center justify-between px-s16 md:px-s32">
+            <div className="hidden bg-gradient-to-r from-secondary-light/40  to-background lg:flex max-w-[1600px]  rounded-2xl mx-auto items-center justify-between px-s32 md:p-s48">
                 <div className="max-w-2xl space-y-s16">
                     <h1
                         className="hero-h1 text-primary-main"
@@ -57,17 +57,14 @@ export default function Hero() {
                     <p className="body-large text-secondary">
                         {hero.subHeading}
                     </p>
-                    <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us"/>
+                    <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us" />
                 </div>
                 <div>
-                    <video
-                        src="/Images/hero.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="object-cover max-h-[800px]"
-                    />
+                    <video autoPlay loop muted playsInline className="hero-video webm " >
+                        <source src="/Images/website.webm" type="video/webm" />
+                    </video>
+
+                    <img src="/Images/statue web p.webp" className="hero-video safari-only" alt="" />
                 </div>
             </div>
         </section>

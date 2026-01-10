@@ -15,7 +15,7 @@
     --text-secondary: #3A3A3A;
     --text-disable: #5E5E5E;
 
-    --background: #FEFAEE;
+    --background: #fafaf9;
     --foreground: #050505;
 
     /* 🔤 Fonts */
@@ -196,4 +196,11 @@ img {
 
 .animate-slideUp {
     animation: slideUp 0.45s ease-out;
+}
+
+.safari-only { display: none; }
+
+@supports (-webkit-touch-callout: none) {
+  .webm { display: none; }
+  .safari-only { display: block; }
 }

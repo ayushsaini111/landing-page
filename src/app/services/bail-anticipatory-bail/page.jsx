@@ -18,8 +18,8 @@ export const revalidate = 60;
 // Dynamic Metadata
 // --------------------------
 export async function generateMetadata() {
-  const { default: Data } = await import("@/Data/data.json");
-  const data = Data?.subServices?.bail ?? null;
+  const { default: Data } = await import("@/Data/SubServices.json");
+  const data = Data?.bail ?? null;
 
   const title = data
     ? `${data.title} — Arshiv Legal`
@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
   const description =
     data?.description ||
-    "Bail services: anticipatory bail, regular bail, urgent representation and documentation support to secure release and protect your rights.";
+    "Bail services including anticipatory bail, regular bail, urgent representation and documentation support.";
 
   return {
     title,
@@ -39,8 +39,8 @@ export async function generateMetadata() {
       "bail",
       "anticipatory bail",
       "regular bail",
-      "urgent legal assistance",
-      "arshiv legal kanpur",
+      "criminal lawyer kanpur",
+      "arshiv legal",
     ],
     openGraph: {
       title,
@@ -50,7 +50,7 @@ export async function generateMetadata() {
       type: "article",
       images: [
         {
-          url: `${SEO_CONFIG.siteUrl}/images/bail-og.jpg`,
+          url: "/og-default.jpg",
           width: 1200,
           height: 630,
           alt: "Bail & Anticipatory Bail - Arshiv Legal",
@@ -61,30 +61,25 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [`${SEO_CONFIG.siteUrl}/images/bail-og.jpg`],
+      images: ["/og-default.jpg"],
     },
     robots: {
       index: true,
       follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
     },
   };
 }
 
 export default async function Page() {
-  const { default: Data } = await import("@/Data/data.json");
-  const data = Data?.subServices?.bail ?? null;
+  const { default: Data } = await import("@/Data/SubServices.json");
+  const data = Data?.bail ?? null;
+
   if (!data) {
     return (
       <main className="mx-auto max-w-7xl px-4 py-20">
-        <section>
-          <p className="text-red-main p-s16">
-            Content not available right now. Please check back later.
-          </p>
-        </section>
+        <p className="text-red-main p-s16">
+          Content not available right now. Please check back later.
+        </p>
       </main>
     );
   }
@@ -93,14 +88,13 @@ export default async function Page() {
   const covers = data.whatThisServiceCovers ?? {};
   const cards = Array.isArray(covers.cards) ? covers.cards : [];
 
+  // --------------------------
   // JSON-LD
-  const title = `${data.title} — Arshiv Legal`;
-  const description = data.description;
-
+  // --------------------------
   const pageSchema = getWebPageSchema({
-    title,
-    description,
-    url: canonicalize("/services/"),
+    title: `${data.title} — Arshiv Legal`,
+    description: data.description,
+    url: canonicalize("/services/bail-anticipatory-bail"),
     type: "Service",
   });
 
@@ -115,8 +109,6 @@ export default async function Page() {
 
   const organizationSchema = getOrganizationSchema();
 
-  const subServiceNames = cards.map((c) => c.title).filter(Boolean);
-
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -128,19 +120,14 @@ export default async function Page() {
       name: SEO_CONFIG.siteName,
       url: SEO_CONFIG.siteUrl,
       logo: SEO_CONFIG.logo,
-      sameAs: [
-        SEO_CONFIG.social.linkedin,
-        SEO_CONFIG.social.facebook,
-        SEO_CONFIG.social.twitter,
-      ].filter(Boolean),
     },
     availableChannel: {
       "@type": "ServiceChannel",
       serviceUrl: canonicalize("/contact-us"),
     },
-    serviceOutput: subServiceNames.map((name) => ({
+    serviceOutput: cards.map((c) => ({
       "@type": "Thing",
-      name,
+      name: c.title,
     })),
     url: canonicalize("/services/bail-anticipatory-bail"),
   };
@@ -166,13 +153,15 @@ export default async function Page() {
   return (
     <main className="space-y-s40 lg:space-y-s64">
       <JsonLd data={ld} />
+
       <section className="flex flex-col gap-s40 md:gap-s64">
         <SubServicePage
-          title={data.title ?? ""}
-          description={data.description ?? ""}
+          title={data.title}
+          description={data.description}
           covers={covers}
           cards={cards}
         />
+
         <div className="w-full mx-auto max-w-7xl px-s16 md:px-s32">
           <FaqSection faqs={faqs} />
         </div>

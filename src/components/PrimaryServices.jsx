@@ -3,11 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { services } from "@/Data/Navlink";
-import Data from "@/Data/data.json";
+import Data from "@/Data/PrimaryServices.json";
 import Gradient from "./ui/Gradient";
 import { useSearchParams } from "next/navigation";
 
-const { title, description } = Data.primaryServices;
+const { title, description } = Data;
 
 export default function PrimaryServices() {
 

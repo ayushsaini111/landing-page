@@ -1,0 +1,229 @@
+{
+    "heroSection": {
+        "mainHeading": "Know your rights.Protect your freedom.",
+        "subHeading": "Every path to justice begins with the right advice — let’s take that first step together.",
+        "ctaButton": "Book a free consultation"
+    },
+    "aboutSection": {
+        "title": "About",
+        "description": " With clear legal insight and swift, reliable guidance, Arshiv Legal helps you act early — while the case is still in your hands and your options are open. We believe every matter deserves attention before it turns complex or slips beyond control. Our approach is rooted in clarity, precision, and timely action, ensuring you understand every step and make confident decisions before the situation escalates.",
+        "ctaButton": "Learn more"
+    },
+    "howWeWork": {
+        "heading": "How We Work",
+        "description": "Legal guidance should be simple, transparent, and accessible — helping you understand your rights before taking any major step.",
+        "steps": [
+            {
+                "number": 1,
+                "title": "You Share Your Concern",
+                "text": "Reach out with your legal issue or question. Every matter is treated with confidentiality and respect."
+            },
+            {
+                "number": 2,
+                "title": "Respond Personally",
+                "text": "You’ll receive a response directly from our team — not automated. We take time to understand the facts and urgency involved."
+            },
+            {
+                "number": 3,
+                "title": "Analyse and Clarify",
+                "text": "We study your situation and explain the law behind it in clear, practical terms — so you know exactly where you stand and what options exist."
+            },
+            {
+                "number": 4,
+                "title": "Suggest the Simplest Legal Route",
+                "text": "If the matter can be resolved through a simple legal process, we’ll guide you through it step by step — ensuring you stay informed and legally safe."
+            },
+            {
+                "number": 5,
+                "title": "Connect You to the Right Counsel (If Needed)",
+                "text": "When representation becomes necessary, we help you identify the right kind of lawyer — civil, criminal, family, corporate, or others — and, if you wish, connect you to trusted professionals."
+            },
+            {
+                "number": 6,
+                "title": "Stay With You (Paid Engagement)",
+                "text": "If you continue through our platform or one of our referred lawyers, we assist with coordination, documentation, and communication until your matter reaches closure."
+            }
+        ],
+        "footerNote": "Our role is to simplify law, guide you responsibly, and ensure you reach the right legal support — without confusion, pressure, or false promises."
+    },
+    "don’tHesitate": {
+        "title": "Don’t hesitate its your right!",
+        "description": "If you’ve reached this point, you probably need answers — and that’s completely okay. Legal problems can feel heavy, but you don’t have to face them alone. You deserve guidance, clarity, and someone who truly listens before offering solutions.We understand how overwhelming it can be when rights, responsibilities, and emotions collide. That’s why we’re here — to help you understand where you stand, what the law says, and how you can move forward confidently.You’ve already taken the first step by being here. Let’s take the next one together."
+    },
+    "servicesSection": {
+        "arrow": "->",
+        "topHeading": "See how our legal services can support you.",
+        "tabs": [
+            {
+                "label": "Public Law",
+                "slug": "public-law"
+            },
+            {
+                "label": "Property Law",
+                "slug": "property-law"
+            },
+            {
+                "label": "Criminal Law",
+                "slug": "criminal-law"
+            },
+            {
+                "label": "Civil Law",
+                "slug": "civil-law"
+            },
+            {
+                "label": "Administrative Law",
+                "slug": "administrative-law"
+            },
+            {
+                "label": "Constitutional Law",
+                "slug": "constitutional-law"
+            }
+        ],
+        "civilLaw": {
+            "title": "Civil Law",
+            "image": "/Images/civil-law.webp",
+            "description": "Civil law covers disputes between individuals, families, or organisations. It includes conflicts involving money, contracts, consumer issues, reputation, workplace matters, and everyday disagreements that require legal clarification or resolution through civil procedures.",
+            "subTitle": "Below are the key civil matters this section covers:",
+            "keyMatters": [
+                "Property Disputes",
+                "Family Matters"
+            ]
+        },
+        "criminalLaw": {
+            "title": "Criminal Law",
+            "image": "/Images/criminal-law.webp",
+            "description": "Criminal law deals with offences that involve accusations of wrongdoing, harm, threats, or violations of public order. It includes matters related to police complaints, FIRs, fraud, violence, cyber offences, and conduct treated as criminal under law.",
+            "subTitle": "Below are the primary criminal concerns covered under this category:",
+            "keyMatters": [
+                "Police Complaints & FIRs",
+                "Fraud & Cheating Cases",
+                "Cybercrime Issues",
+                "Threats, Abuse, Violence"
+            ]
+        },
+        "administrativeLaw": {
+            "title": "Administrative Law",
+            "image": "/Images/administrative-law.webp",
+            "description": "Administrative law covers disputes and issues arising from actions, decisions, or notices issued by government departments or authorities. It includes challenges to official orders, penalties, licensing problems, and matters involving public administrative bodies.",
+            "subTitle": "Below are the administrative matters that fall under this service:",
+            "keyMatters": [
+                "Government Notices & Orders",
+                "Licensing & Permit Issues",
+                "Administrative Penalties",
+                "Public Department Disputes"
+            ]
+        },
+        "publicLaw": {
+            "title": "Public Law",
+            "image": "/Images/public-law.webp",
+            "description": "Public law addresses situations where state authorities, public officials, or government bodies affect individual rights. It includes cases involving misuse of power, unlawful administrative actions, and matters requiring accountability from public institutions.",
+            "subTitle": "Below are the core constitutional matters included under this category:",
+            "keyMatters": [
+                "Misuse of Power by Authorities",
+                "Unlawful Administrative Actions",
+                "Government Accountability Cases",
+                "Rights-Violating Public Actions"
+            ]
+        },
+        "constitutionalLaw": {
+            "title": "Constitutional Law",
+            "image": "/Images/constitutional-law.webp",
+            "description": "Constitutional law involves issues relating to fundamental rights and the legality of governmental actions. It covers challenges to government orders, enforcement of constitutional protections, and matters requiring judicial review of state decisions.",
+            "subTitle": "Below are the core constitutional matters included under this category:",
+            "keyMatters": [
+                "Fundamental Rights Violations",
+                "Judicial Review of State Actions",
+                "Unconstitutional Orders",
+                "Constitutional Protection Enforcement"
+            ]
+        },
+        "propertyLaw": {
+            "title": "Property Law",
+            "image": "/Images/property-law.webp",
+            "description": "Property law deals with rights, ownership, possession, and use of land or buildings. It includes disputes over boundaries, tenancy, transfers, inheritance, encroachment, and any conflict involving residential, commercial, or ancestral property.",
+            "subTitle": "Below are the main property-related issues included in this service:",
+            "keyMatters": [
+                "Encroachment & Boundary Disputes",
+                "Tenancy & Rental Issues",
+                "Property Transfers & Sales",
+                "Inheritance & Ancestral Property"
+            ]
+        },
+        "caseStudies": [
+            {
+                "id": 1,
+                "image": "/Images/case1.webp",
+                "case": "/Images/caseStudy1.webp"
+            },
+            {
+                "id": 2,
+                "image": "/Images/case2.webp",
+                "case": "/Images/caseStudy2.webp"
+            },
+            {
+                "id": 3,
+                "image": "/Images/case3.webp",
+                "case": "/Images/caseStudy3.webp"
+            }
+        ]
+    },
+    "whyChooseUs": {
+        "title": "Why choose us?",
+        "points": [
+            "Our approach is built on clarity, precision, and genuine understanding. We believe that legal help should never feel distant or complicated. Every case we take is handled with professional diligence — but explained in a way that anyone can understand.",
+            "We respond quickly, communicate directly, and ensure that no concern goes unheard. Each matter receives the attention it deserves, with complete confidentiality and a personal sense of responsibility.",
+            "Our aim is simple — to make the law understandable, accessible, and effective for those who need it most. Every effort reflects our commitment to act with integrity, deliver timely guidance, and protect the rights entrusted to us."
+        ]
+    },
+    "pricingSection": {
+        "footerNote": "⁠*All consultations are handled by qualified legal professionals. Fees vary based on complexity and time, ensuring fairness and transparency.",
+        "pricing": [
+            {
+                "title": "Free",
+                "star": "*",
+                "price": "₹0 | First 10 Minutes",
+                "details": "Talk to us about your concern and get clear, reliable legal direction at no cost.\nWe’ll help you understand where you stand and what your next legal step could be.\n\nStart with clarity. No charge, no obligation.",
+                "buttonText": "Contact us",
+                "variant": "free"
+            },
+            {
+                "title": "Standard",
+                "star": "",
+                "price": "₹0 | Paid | Fees vary by case",
+                "details": "A focused session for those who need more than a brief opinion — get practical legal guidance based on your facts, documents, and situation.\nPricing depends on case type, lawyer’s experience, and time required.\n\nTransparent and fairly assessed before your session.",
+                "buttonText": "Choose",
+                "variant": "standard"
+            },
+            {
+                "title": "Extended",
+                "star": "",
+                "price": "₹499 per 30 Minutes (after first 10 mins free)",
+                "details": "For deeper discussions or continued guidance on your matter.\nIdeal when your case requires follow-ups, document review, or legal strategy.\n\nAffordable, ongoing support — with complete transparency.",
+                "buttonText": "Choose",
+                "variant": "standard"
+            }
+        ]
+    },
+    "faqs": [
+        {
+            "question": "How fast can I get a consultation?",
+            "answer": "Usually the same day. For time-sensitive matters (police involvement, deadlines, property disputes, threats, financial fraud, etc.), we prioritise and try to arrange an urgent slot within hours."
+        },
+        {
+            "question": "Will I need to visit an office or is everything online?",
+            "answer": "Almost everything — consultation, document review, drafting, clarifications — is handled online. In-person meetings are arranged only when specifically required."
+        },
+        {
+            "question": "Are my messages and documents kept confidential?",
+            "answer": "Yes. All information shared is confidential and used only for advising you on your matter."
+        },
+        {
+            "question": "Is there a minimum fee or can I consult only for one specific issue?",
+            "answer": "You can consult for even a single, small, or very specific issue — there is no minimum requirement.\n\nYou will receive an initial free consultation to understand your matter.\n\nIf the issue is complex or requires detailed review, drafting, or strategic work, we will inform you of the exact charges in advance, before any paid service begins."
+        },
+        {
+            "question": "If my matter requires a court lawyer, will you arrange one?",
+            "answer": "Yes. We advise you on the type of lawyer required and can recommend advocates from our network. You may choose our suggested lawyer or hire your own — we coordinate the strategy and drafting either way."
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import Data from "@/Data/data.json";
+import Data from "@/Data/PrivacyPolicy.json";
 
 export default function PrivacyPolicy() {
-    const { privacyPolicy } = Data;
+    const privacyPolicy  = Data;
 
     if (!privacyPolicy) return <p className="p-s32 text-red-main">Data not found.</p>;
 

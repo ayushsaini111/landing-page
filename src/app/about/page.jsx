@@ -14,33 +14,32 @@ import {
 //----------------------------------------------------------
 
 export const metadata = {
-  title: "About Arshiv Legal — Corporate & Civil Law Experts in Kanpur",
+  title: "About Arshiv Legal | Law Firm in Kanpur",
   description:
-    "Arshiv Legal provides structured, practical legal guidance. Meet Advocate Arshiv and the team — 15+ years of experience in corporate, startup and civil litigation in Kanpur.",
+    "Learn about Arshiv Legal, a law firm in Kanpur focused on providing clear, structured legal guidance and responsible preliminary legal assistance for individuals and families.",
   alternates: {
     canonical: canonicalize("/about"),
   },
-  // keep keywords concise and targeted for the about page
   keywords: [
     "about arshiv legal",
-    "corporate lawyer kanpur",
-    "civil lawyer kanpur",
-    "advocate arshiv",
+    "law firm in kanpur",
+    "legal guidance kanpur",
+    "legal consultation kanpur",
   ],
-  // Open Graph (use absolute image below)
   openGraph: {
-    title: "About Arshiv Legal — Experienced Corporate & Civil Lawyers",
+    title: "About Arshiv Legal | Law Firm in Kanpur",
     description:
-      "Meet Advocate Arshiv and the Arshiv Legal team — experienced lawyers providing corporate, startup and civil litigation assistance in Kanpur.",
+      "Arshiv Legal is a law firm in Kanpur focused on clarity, structure, and responsible legal guidance for individuals and families.",
     url: canonicalize("/about"),
     siteName: SEO_CONFIG.siteName,
-    type: "profile",
+    locale: "en_IN",
+    type: "website",
     images: [
       {
-        url: `${SEO_CONFIG.siteUrl}/images/about-hero-og.jpg`, // ensure this exists in /public/images
+        url: "/og-default.jpg", // ensure this exists
         width: 1200,
         height: 630,
-        alt: "Arshiv Legal - About",
+        alt: "Arshiv Legal – Law Firm in Kanpur",
       },
     ],
   },
@@ -48,8 +47,7 @@ export const metadata = {
 
 //---------------------------------------------------------------------
 
-function page() {
-  // 1. WebPage / AboutPage schema
+function Page() {
   const pageSchema = getWebPageSchema({
     title: metadata.title,
     description: metadata.description,
@@ -57,36 +55,23 @@ function page() {
     type: "AboutPage",
   });
 
-  // 2. Breadcrumbs for structured navigation
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: canonicalize("/") },
     { name: "About", url: canonicalize("/about") },
   ]);
 
-  // 3. Organization schema (company identity) - uses SEO_CONFIG fields
-  //    This strengthens knowledge panel signals and provides organization contact/logo.
   const organizationSchema = getOrganizationSchema();
 
-  // 4. Person (primary lawyer) schema
-  //    Use absolute image URL and include social profiles in sameAs for credibility.
   const personSchema = getPersonSchema({
-    name: "Advocate Arshiv",
-    jobTitle: "Senior Corporate Lawyer",
-    image: `${SEO_CONFIG.siteUrl}/images/arshiv.jpg`, // absolute URL (ensure /public/images/arshiv.jpg exists)
+    name: "Aryan Pandey",
+    jobTitle: "Founder",
+    image: `${SEO_CONFIG.siteUrl}/Images/aryan.png`,
     url: canonicalize("/about"),
     description:
-      "Advocate Arshiv is a Senior Corporate Lawyer with 15+ years of experience in corporate law, startups and civil litigation based in Kanpur.",
-    sameAs: [
-      SEO_CONFIG.social.linkedin,
-      SEO_CONFIG.social.facebook,
-      SEO_CONFIG.social.twitter,
-    ],
+      "Aryan Pandey is the founder of Arshiv Legal, a law firm in Kanpur focused on structured legal guidance and responsible legal assistance for individuals and families.",
+    sameAs: [SEO_CONFIG.social.LinkedIn].filter(Boolean),
   });
 
-  // NOTE: We are intentionally NOT including an FAQ schema since the page (screenshot)
-  //       does not contain an FAQ block. If you later add a Q&A section, we can add it.
-
-  // Pass schemas as an array (your existing JsonLd component serializes this)
   const ld = [pageSchema, breadcrumbSchema, organizationSchema, personSchema];
 
   return (
@@ -103,4 +88,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

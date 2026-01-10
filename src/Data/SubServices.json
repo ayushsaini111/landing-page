@@ -1,0 +1,538 @@
+{
+    "propertyDisputes": {
+        "title": "Property Disputes",
+        "description": "Property disputes arise when ownership, possession, or boundary rights are unclear or challenged. This service helps you confirm legal ownership, resolve conflicts, and act against illegal possession or incorrect documentation.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Land Ownership & Possession Disputes",
+                    "subtitle": "Conflicts where more than one person claims the same property."
+                },
+                {
+                    "title": "Family Partition Issues",
+                    "subtitle": "Disputes over dividing family or ancestral property."
+                },
+                {
+                    "title": "Boundary & Measurement Conflicts",
+                    "subtitle": "Problems regarding land size or boundary markings."
+                },
+                {
+                    "title": "Illegal Possession / Encroachment",
+                    "subtitle": "When someone occupies property without permission."
+                },
+                {
+                    "title": "Builder Delay or Fraud",
+                    "subtitle": "Issues involving delayed possession or false commitments."
+                },
+                {
+                    "title": "Will / Inheritance Disputes",
+                    "subtitle": "Confusion over rightful heirs or property distribution."
+                },
+                {
+                    "title": "Registration, Transfer & Title Problems",
+                    "subtitle": "Errors or mismatches in property documents."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "How do I know if I legally own the property?",
+                "answer": "By checking your sale deed, land records, and past ownership history — we verify all of it for you."
+            },
+            {
+                "question": "Can a property dispute be solved without going to court?",
+                "answer": "Yes, many cases are resolved through notices, negotiation, or family settlements."
+            },
+            {
+                "question": "How long does a property case usually take?",
+                "answer": "It depends on complexity, but we guide you toward the fastest possible route."
+            },
+            {
+                "question": "What if someone illegally occupies my property?",
+                "answer": "You can take legal action for eviction, removal, and recovery of possession."
+            }
+        ]
+    },
+    "familyMatters": {
+        "title": "Family Matters",
+        "description": "Family matters address legal issues within relationships such as separation, financial support, domestic disputes, and child-related decisions.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Divorce Consultation",
+                    "subtitle": "Legal steps and guidance for separating couples."
+                },
+                {
+                    "title": "Maintenance & Alimony",
+                    "subtitle": "Financial support claims after separation."
+                },
+                {
+                    "title": "Domestic Violence Protection",
+                    "subtitle": "Help for individuals facing abuse or threats."
+                },
+                {
+                    "title": "Child Custody & Guardianship",
+                    "subtitle": "Decisions about child care after separation."
+                },
+                {
+                    "title": "Family Settlements",
+                    "subtitle": "Written agreements to resolve disputes peacefully."
+                },
+                {
+                    "title": "Dowry Harassment Matters",
+                    "subtitle": "Cases involving dowry demands or false allegations."
+                },
+                {
+                    "title": "Marriage Documentation / Registration",
+                    "subtitle": "Assistance with legal paperwork."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "Do I need a lawyer to file for divorce?",
+                "answer": "Not always, but legal guidance ensures your rights are protected regarding property, maintenance, and custody."
+            },
+            {
+                "question": "How is child custody decided?",
+                "answer": "Based on the child’s welfare, living conditions, and parental stability."
+            },
+            {
+                "question": "Can maintenance be claimed even if I'm not divorced?",
+                "answer": "Yes, you can claim support during separation."
+            },
+            {
+                "question": "Are family matters kept confidential?",
+                "answer": "Yes, complete privacy is maintained."
+            }
+        ]
+    },
+    "bail": {
+        "title": "Bail & Anticipatory Bail",
+        "description": "Bail services help individuals prevent arrest or secure release quickly. This service ensures timely filing of bail applications and guides you through urgent criminal procedures.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Anticipatory Bail",
+                    "subtitle": "Protection when you fear arrest."
+                },
+                {
+                    "title": "Regular Bail",
+                    "subtitle": "Assistance for securing release from custody."
+                },
+                {
+                    "title": "Bail Documentation",
+                    "subtitle": "Preparation of required papers and grounds."
+                },
+                {
+                    "title": "Court Representation",
+                    "subtitle": "Support during bail hearings."
+                },
+                {
+                    "title": "Urgent Legal Assistance",
+                    "subtitle": "Immediate help in time-sensitive situations."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "When should I apply for anticipatory bail?",
+                "answer": "When you believe someone may file a complaint or FIR against you."
+            },
+            {
+                "question": "How fast can bail be arranged?",
+                "answer": "Often within the same day, depending on court timing."
+            },
+            {
+                "question": "Will getting bail mean I'm proven guilty?",
+                "answer": "No — bail only ensures you remain free during the investigation."
+            }
+        ]
+    },
+    "cheatingHarassment": {
+        "title": "Cheating, Threats & Harassment Cases",
+        "description": "These matters involve complaints or allegations of cheating, threats, abuse, or harassment. This service helps you file strong complaints or defend against false accusations.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Cheating / Fraud Cases",
+                    "subtitle": "Disputes involving money, trust, or breach of promise."
+                },
+                {
+                    "title": "Criminal Intimidation / Threats",
+                    "subtitle": "Complaints related to verbal or written threats."
+                },
+                {
+                    "title": "Harassment Cases",
+                    "subtitle": "Situations involving repeated disturbance or abuse."
+                },
+                {
+                    "title": "False Allegation Defence",
+                    "subtitle": "Support if someone files a misleading complaint."
+                },
+                {
+                    "title": "Settlement & Mediation",
+                    "subtitle": "When issues can be resolved peacefully."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "Should I file an FIR or a police complaint first?",
+                "answer": "We help you decide based on urgency and the strength of your case."
+            },
+            {
+                "question": "What if the allegations against me are false?",
+                "answer": "You can defend yourself legally with evidence and proper replies."
+            },
+            {
+                "question": "Can harassment cases be resolved without going to court?",
+                "answer": "Sometimes yes, if both parties agree."
+            }
+        ]
+    },
+    "documentsLicensing": {
+        "title": "Government Document & Licensing Issues",
+        "description": "Administrative matters arise when government procedures, documents, or licenses face delays or complications. This service helps you correct, update, or obtain necessary approvals smoothly.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Licensing & Permit Issues",
+                    "subtitle": "Help with obtaining or renewing official licenses."
+                },
+                {
+                    "title": "Document Correction Requests",
+                    "subtitle": "Fixing errors in government-issued documents."
+                },
+                {
+                    "title": "Application Support",
+                    "subtitle": "Guidance for submissions and required paperwork."
+                },
+                {
+                    "title": "Status Follow-up",
+                    "subtitle": "Assistance with delayed or pending applications."
+                },
+                {
+                    "title": "Compliance Queries",
+                    "subtitle": "Clarification of rules and requirements."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "How do I correct errors in government documents?",
+                "answer": "Most corrections need applications and supporting proofs — we guide and prepare everything."
+            },
+            {
+                "question": "Why is my document or license delayed?",
+                "answer": "Usually due to missing documents or pending verification."
+            },
+            {
+                "question": "Can you speed up a stuck application?",
+                "answer": "We help follow up with departments and fix issues blocking the process."
+            }
+        ]
+    },
+    "challengeOrders": {
+        "title": "Challenges Against Government Orders",
+        "description": "This service helps individuals and businesses challenge unfair, incorrect, or excessive government orders, notices, or penalties through proper legal channels.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Challenging Penalties",
+                    "subtitle": "When unfair fines or actions are issued."
+                },
+                {
+                    "title": "Replying to Government Notices",
+                    "subtitle": "Proper responses to avoid escalation."
+                },
+                {
+                    "title": "Appeals Against Decisions",
+                    "subtitle": "Legal steps to overturn incorrect orders."
+                },
+                {
+                    "title": "Compliance Clarification",
+                    "subtitle": "Support in understanding requirements."
+                },
+                {
+                    "title": "Representation Before Authorities",
+                    "subtitle": "Assistance in hearings or meetings."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "Can I challenge any government notice?",
+                "answer": "Yes, if it is unfair, incorrect, or issued without proper grounds."
+            },
+            {
+                "question": "What if I miss the deadline to reply?",
+                "answer": "It can cause penalties — always respond quickly; we prepare replies on time."
+            },
+            {
+                "question": "Do I need to go to court for every challenge?",
+                "answer": "Not always; some issues get resolved by filing objections or appeals."
+            }
+        ]
+    },
+    "publicMatters": {
+        "title": "Public Interest Related Matters",
+        "description": "Public law matters involve issues affecting communities, public rights, or social welfare. This service helps identify suitable legal remedies for concerns impacting the broader public.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Public Safety Concerns",
+                    "subtitle": "Matters affecting large groups or communities."
+                },
+                {
+                    "title": "Local Governance Issues",
+                    "subtitle": "Disputes involving public services or civic authorities."
+                },
+                {
+                    "title": "Policy-Related Complaints",
+                    "subtitle": "When administrative decisions harm public interest."
+                },
+                {
+                    "title": "Public Welfare Matters",
+                    "subtitle": "Issues related to environment, health, or misuse of resources."
+                },
+                {
+                    "title": "Guidance on PIL Feasibility",
+                    "subtitle": "Help understanding if a matter qualifies for PIL."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "How do I know if my issue qualifies as public interest?",
+                "answer": "If it affects community rights or public welfare, it may qualify."
+            },
+            {
+                "question": "Is filing a PIL expensive or complicated?",
+                "answer": "It depends — we guide you on feasibility before taking any step."
+            },
+            {
+                "question": "Can an individual file a public interest matter?",
+                "answer": "Yes, if the issue affects society."
+            }
+        ]
+    },
+    "rightsViolation": {
+        "title": "Rights Violation Complaints",
+        "description": "This service addresses situations where authorities or individuals violate someone’s rights, dignity, or lawful freedoms.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Police Misconduct Complaints",
+                    "subtitle": "When officers misuse power."
+                },
+                {
+                    "title": "Authority Misbehaviour",
+                    "subtitle": "Cases involving officials acting illegally."
+                },
+                {
+                    "title": "Access to Services Issues",
+                    "subtitle": "When basic public rights are denied."
+                },
+                {
+                    "title": "Unfair Treatment Cases",
+                    "subtitle": "Actions violating individual dignity."
+                },
+                {
+                    "title": "Support in Filing Complaints",
+                    "subtitle": "Help with applications, evidence, and process."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "What should I do if a police officer misuses their power?",
+                "answer": "You can file a complaint with proper evidence; we help prepare it."
+            },
+            {
+                "question": "Are rights violation complaints taken seriously?",
+                "answer": "Yes, especially when supported by documents or witnesses."
+            },
+            {
+                "question": "Can I remain anonymous while complaining?",
+                "answer": "Depends on the department and nature of complaint."
+            }
+        ]
+    },
+    "fundamentalRights": {
+        "title": "Fundamental Rights Protection",
+        "description": "This service focuses on safeguarding your rights under the Constitution, especially when authorities act unfairly or restrict your lawful freedoms.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Equality & Non-Discrimination Issues",
+                    "subtitle": "Cases involving unfair treatment."
+                },
+                {
+                    "title": "Right to Liberty Matters",
+                    "subtitle": "Concerns related to personal freedom."
+                },
+                {
+                    "title": "Privacy Violations",
+                    "subtitle": "Interference with personal information."
+                },
+                {
+                    "title": "Freedom of Movement / Expression Issues",
+                    "subtitle": "Restrictions without lawful grounds."
+                },
+                {
+                    "title": "Guidance on Constitutional Remedies",
+                    "subtitle": "Help choosing the correct legal route."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "How do I know if my fundamental right is violated?",
+                "answer": "If an authority restricts your liberty, privacy, equality, or freedom without reason."
+            },
+            {
+                "question": "Do all rights violations need a writ?",
+                "answer": "Not always — some issues resolve with complaints first."
+            }
+        ]
+    },
+    "writPetitions": {
+        "title": "Writ Petitions",
+        "description": "Writ petitions are used to challenge illegal actions, prevent misuse of power, or demand government authorities to act lawfully.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Habeas Corpus",
+                    "subtitle": "When someone is illegally detained."
+                },
+                {
+                    "title": "Mandamus",
+                    "subtitle": "When authorities refuse their duty."
+                },
+                {
+                    "title": "Certiorari",
+                    "subtitle": "To cancel unlawful orders."
+                },
+                {
+                    "title": "Prohibition",
+                    "subtitle": "Stop lower bodies from exceeding powers."
+                },
+                {
+                    "title": "Quo Warranto",
+                    "subtitle": "Question someone's right to hold office."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "Do I need to go directly to the High Court for a writ?",
+                "answer": "Yes, writs are filed in High Court or Supreme Court only."
+            },
+            {
+                "question": "How long does a writ petition take?",
+                "answer": "Depends on urgency; some are heard immediately."
+            },
+            {
+                "question": "Which writ should I file?",
+                "answer": "We suggest the correct one based on your situation."
+            }
+        ]
+    },
+    "landVerification": {
+        "title": "Land Ownership & Title Verification",
+        "description": "This service verifies whether a land or property is legally safe to buy, sell, or transfer.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Document Verification",
+                    "subtitle": "Checking sale deeds, RTC, and other papers."
+                },
+                {
+                    "title": "Title Check",
+                    "subtitle": "Ensuring clear and undisputed ownership."
+                },
+                {
+                    "title": "Past Record Examination",
+                    "subtitle": "Identifying prior disputes/issues."
+                },
+                {
+                    "title": "Encumbrance Check",
+                    "subtitle": "Confirming no loans or liabilities."
+                },
+                {
+                    "title": "Legal Advisory Before Purchase",
+                    "subtitle": "Avoid risky properties."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "Why should I verify a property before buying it?",
+                "answer": "To avoid fraud, hidden disputes, or unclear ownership."
+            },
+            {
+                "question": "How long does title verification take?",
+                "answer": "Usually 1–3 days depending on records."
+            },
+            {
+                "question": "Is online property information enough?",
+                "answer": "No — many critical details are only found in physical records."
+            }
+        ]
+    },
+    "propertyTransfer": {
+        "title": "Property Transfer & Registration",
+        "description": "Property transfer services ensure safe and legal completion of buying, selling, or gifting property.",
+        "whatThisServiceCovers": {
+            "heading": "What This Service Covers",
+            "cards": [
+                {
+                    "title": "Sale / Purchase Documentation",
+                    "subtitle": "Drafting and reviewing agreements."
+                },
+                {
+                    "title": "Gift & Transfer Deeds",
+                    "subtitle": "Preparing deeds for family transfers."
+                },
+                {
+                    "title": "Registration Support",
+                    "subtitle": "Completing processes at sub-registrar office."
+                },
+                {
+                    "title": "Stamp Duty Guidance",
+                    "subtitle": "Correct fee calculation assistance."
+                },
+                {
+                    "title": "Name Transfer Assistance",
+                    "subtitle": "Updating records after purchase or inheritance."
+                }
+            ]
+        },
+        "faqs": [
+            {
+                "question": "What documents are needed for property registration?",
+                "answer": "Sale deed, ID proofs, photographs, and payment details."
+            },
+            {
+                "question": "Can I register property in someone else's name?",
+                "answer": "Yes, with proper documentation."
+            },
+            {
+                "question": "What happens if the registration is delayed?",
+                "answer": "Stamp duty may increase and the transfer becomes legally incomplete."
+            }
+        ]
+    }
+}
