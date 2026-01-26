@@ -56,7 +56,7 @@ export default function OurTeam() {
         </figure>
       </header>
 
-  <section className="min-h-screen bg-[url('/Images/Frame-258.svg')] lg:bg-[url('/Images/Frame-178.svg')] [1950px]:bg-[url('/Images/Frame-174.svg')] bg-cover [1950px]:bg-contain bg-top">
+  <section className="min-h-screen bg-[url('/Images/Frame-10.svg')] lg:bg-[url('/Images/Frame-178.svg')] [1950px]:bg-[url('/Images/Frame-174.svg')] bg-cover [1950px]:bg-contain bg-top">
   <div className="relative max-w-7xl mx-auto px-s24 md:px-s40 pt-[150px] md:pt-[20px] ">
 
     {/* INTRO ROW */}
