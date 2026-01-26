@@ -172,9 +172,12 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT */}
-          <div className="md:w-1/2">
-            <ContactForm formData={contactSection.form} />
-          </div>
+        <div className="md:w-1/2">
+  <Suspense fallback={<div className="py-4">Loading form…</div>}>
+    <ContactForm formData={contactSection.form} />
+  </Suspense>
+</div>
+
         </div>
 
         {/* MAP */}

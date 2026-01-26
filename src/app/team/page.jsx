@@ -31,7 +31,7 @@ export default function OurTeam() {
             {header.title}
           </h1>
 
-          <p className="max-w-xs sm:max-w-md text-left text-sm md:text-lg md:font-medium md:leading-relaxed   text-main  md:max-w-lg lg:max-w-2xl mx-auto">
+          <p className="max-w-xs sm:max-w-md text-sm md:text-lg md:font-medium md:leading-relaxed   text-main  md:max-w-lg lg:max-w-2xl mx-auto">
             {header.subtitle}
           </p>
         </section>
