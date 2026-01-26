@@ -7,6 +7,8 @@ import JsonLd from "@/components/JsonLd";
 import { SEO_CONFIG } from "@/lib/seo-config";
 import { canonicalize } from "@/utils/canonical";
 import Data from "@/Data/ContactSection.json";
+import { Suspense } from "react";
+
 import {
   getWebPageSchema,
   getBreadcrumbSchema,
