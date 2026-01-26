@@ -27,9 +27,9 @@ export default function CardSkeleton({ isVideo = false }) {
 
             {/* TEXT SKELETON */}
             <div className="flex flex-col gap-3 px-1 py-2">
-                <div className="w-3/4 h-4 bg-secondary-light rounded-md" />
-                <div className="w-full h-3 bg-secondary-light/90 rounded-md" />
-                <div className="w-5/6 h-3 bg-secondary-light/80 rounded-md" />
+                <div className="w-3/4 h-4 bg-secondary-dark rounded-md" />
+                <div className="w-full h-3 bg-secondary-dark/90 rounded-md" />
+                <div className="w-5/6 h-3 bg-secondary-dark/80 rounded-md" />
             </div>
         </div>
     );

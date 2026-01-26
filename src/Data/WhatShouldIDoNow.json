@@ -1,30 +1,42 @@
 {
-    "title": "What Should I Do Now?",
-    "sections": [
+    "badge": "IMPORTANT: READ THIS BEFORE RESPONDING",
+    "heading": "What Should You Do Now?",
+    "subHeading": "Before you reply, sign, or explain anything — pause. One wrong step can cost you more than you think.",
+    "image": {
+        "url": "/Images/library-01.webp",
+        "alt": "Law books arranged on a wooden shelf"
+    },
+    "warningBox": {
+        "icon": "/Images/alert-icon.svg",
+        "alt": "Law books arranged on a wooden shelf",
+        "title": "Anything you say or sign can be used against you.",
+        "description": "Even a quick reply, casual explanation, or “harmless” signature can weaken your position permanently."
+    },
+    "stepsTitle": "Your First Safe Steps",
+    "steps": [
         {
-            "heading": "ANYTHING YOU SAY OR SIGN CAN BE USED AGAINST YOU.",
-            "paragraphs": [
-                "Whether it’s a reply to a notice, a statement at a police station, or a document someone wants you to sign — your safest move is to understand its legal impact first.",
-                "— A single line, a single signature, or even a quick emotional reaction can completely change your position in a case.",
-                "— Speaking without clarity can weaken your defence. Signing without reading can bind you to terms you never intended.",
-                "— Reacting emotionally can create problems that are difficult to undo.",
-                "Take a moment.",
-                "Get clarity.",
-                "Then act."
-            ]
+            "icon": "/Images/stop-circle.svg",
+            "alt": "Pause",
+            "title": "Pause",
+            "description": "Don’t reply, explain, or sign anything yet."
         },
         {
-            "image": "/Images/library-01.webp",
-            "imageAlt": "image"
+            "icon": "/Images/edit.svg",
+            "alt": "Don’t Commit",
+            "title": "Don’t Commit",
+            "description": "No written and no verbal statements."
         },
         {
-            "heading": "YOUR FIRST SAFE STEP",
-            "bullets": [
-                "Take a breath. Don’t rush.",
-                "Don’t react, don’t explain, and don’t sign anything yet.",
-                "Keep everything with you and talk to someone who understands the law before you say a single word.",
-                "This one pause can protect you more than you think."
-            ]
+            "icon": "/Images/call-incoming.svg",
+            "alt": "Talk to an Expert",
+            "title": "Discuss with Expert",
+            "description": "Share everything with a legal expert."
+        },
+        {
+            "icon": "/Images/shield-tick.svg",
+            "alt": "This Pause Protects You",
+            "title": "This Pause Protects You",
+            "description": "Silence now can save you later."
         }
     ],
     "faqs": [

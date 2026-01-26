@@ -8,8 +8,8 @@ export default function FaqSection({ faqs = [] }) {
   if (!Array.isArray(faqs) || faqs.length === 0) return null;
 
   return (
-    <div className="space-y-s16 lg:space-y-s32">
-      <h2 className="page-title-h2 text-accent-main">FAQ</h2>
+    <div className="space-y-s16 px-s16 lg:space-y-s32">
+      <h2 className="heading-h4 text-accent-main">FAQ</h2>
 
       <div>
         {faqs.map((faq, index) => (

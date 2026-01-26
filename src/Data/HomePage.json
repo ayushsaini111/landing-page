@@ -1,7 +1,7 @@
 {
     "heroSection": {
-        "mainHeading": "Know your rights.Protect your freedom.",
-        "subHeading": "Every path to justice begins with the right advice — let’s take that first step together.",
+        "mainHeading": "Know your rights. Protect your freedom.",
+        "subHeading": "Every path to justice<br> begins with the right advice — let’s take that first step together.",
         "ctaButton": "Book a free consultation"
     },
     "aboutSection": {
@@ -48,7 +48,9 @@
     },
     "don’tHesitate": {
         "title": "Don’t hesitate its your right!",
-        "description": "If you’ve reached this point, you probably need answers — and that’s completely okay. Legal problems can feel heavy, but you don’t have to face them alone. You deserve guidance, clarity, and someone who truly listens before offering solutions.We understand how overwhelming it can be when rights, responsibilities, and emotions collide. That’s why we’re here — to help you understand where you stand, what the law says, and how you can move forward confidently.You’ve already taken the first step by being here. Let’s take the next one together."
+"description": "If you’ve reached this point, you probably need answers — and that’s completely okay. Legal problems can feel heavy, but you don’t have to face them alone. You deserve guidance, clarity, and someone who truly listens before offering solutions.We understand how overwhelming it can be when rights, responsibilities, and emotions collide. That’s why we’re here — to help you understand where you stand, what the law says, and how you can move forward confidently.You’ve already taken the first step by being here. Let’s take the next one together.",
+        "footerNote": "If you’ve reached this point, you probably need answers — and that’s completely okay. Legal problems can feel heavy, but you don’t have to face them alone. You deserve guidance, clarity, and someone who truly listens before offering solutions. "
+
     },
     "servicesSection": {
         "arrow": "->",
@@ -169,13 +171,13 @@
     },
     "whyChooseUs": {
         "title": "Why choose us?",
-        "points": [
-            "Our approach is built on clarity, precision, and genuine understanding. We believe that legal help should never feel distant or complicated. Every case we take is handled with professional diligence — but explained in a way that anyone can understand.",
-            "We respond quickly, communicate directly, and ensure that no concern goes unheard. Each matter receives the attention it deserves, with complete confidentiality and a personal sense of responsibility.",
-            "Our aim is simple — to make the law understandable, accessible, and effective for those who need it most. Every effort reflects our commitment to act with integrity, deliver timely guidance, and protect the rights entrusted to us."
-        ]
+        "description":"Our approach is built on clarity, precision, and genuine understanding. We believe that legal help should never feel distant or complicated. Every case we take is handled with professional diligence — but explained in a way that anyone can understand."
+        
+        
     },
     "pricingSection": {
+        "title":"Consultancy Charges",
+        "subtitle":"Our approach is built on clarity, precision, and genuine understanding.",
         "footerNote": "⁠*All consultations are handled by qualified legal professionals. Fees vary based on complexity and time, ensuring fairness and transparency.",
         "pricing": [
             {

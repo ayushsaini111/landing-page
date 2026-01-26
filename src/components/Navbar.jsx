@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,15 +13,29 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [showServices, setShowServices] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
     useEffect(() => {
         if (isMenuOpen) document.body.style.overflow = "hidden";
         else document.body.style.overflow = "";
         return () => (document.body.style.overflow = "");
     }, [isMenuOpen]);
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        handleScroll(); // run once on mount
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const pathname = usePathname();
 
     const toggleMenu = () => setIsMenuOpen((prev) => !prev);
     const closeMenu = () => setIsMenuOpen(false);
+
 
     useEffect(() => {
         setOpenDropdown(false);
@@ -30,7 +43,17 @@ export default function Navbar() {
 
 
     return (
-        <nav className="fixed top-0 left-0 w-full flex justify-between items-center px-s16 md:px-s24 lg:px-s32 py-s8 lg:py-s16 bg-secondary-light body-default z-50">
+        <nav
+            className={`
+                        fixed top-0 left-0 w-full z-50
+                        flex justify-between items-center
+                        px-s16 md:px-s24 lg:px-s32
+                        py-s8 lg:py-s16 body-default transition-colors duration-300
+                        
+
+                        ${isScrolled ? "backdrop-blur-md bg-secondary-dark/50" : "bg-background border-b border-primary-main"}
+                     `}
+        >
 
             {/* LOGO */}
             <Link href="/" className="shrink-0">
@@ -69,13 +92,20 @@ export default function Navbar() {
                             ) : (
                                 <Link
                                     href={item.href}
-                                    className={`p-s6 border-b-2 transition ${isActive
-                                        ? "border-accent-main text-accent-main"
-                                        : "border-transparent hover:text-accent-main"
-                                        }`}
+                                    className={`relative p-s6 text-default transition-colors origin-center duration-300
+                                    ${isActive ? "text-accent-main" : "hover:text-accent-main"}
+  `}
                                 >
                                     {item.label}
+
+                                    <span
+                                        className={`absolute  left-0 -bottom-1 h-0.5 rounded-full bg-accent-main
+                                        transition-all duration-300 ease-in-out
+                                      ${isActive ? "w-full  opacity-100" : "w-0  opacity-0"}
+    `}
+                                    />
                                 </Link>
+
                             )}
                         </li>
                     );
@@ -93,7 +123,6 @@ export default function Navbar() {
           overflow-hidden transition-all duration-200 ease-in-out
           ${openDropdown ? "opacity-100 max-h-[700px]" : "opacity-0 max-h-0"}
         `}
-                onMouseEnter={() => setOpenDropdown(true)}
                 onMouseLeave={() => setOpenDropdown(false)}
             >
                 <div className="px-s24 py-s24">
@@ -107,7 +136,7 @@ export default function Navbar() {
                             <div key={category} className="flex flex-col gap-s12">
 
                                 {/* Category Title */}
-                                <h3 className="title-h4 text-secondary-main">{category}</h3>
+                                <h3 className="title-h4 text-secondary-dark">{category}</h3>
 
                                 {/* Items */}
                                 <div className="flex flex-col gap-s6">
@@ -118,8 +147,8 @@ export default function Navbar() {
                                             onClick={() => setOpenDropdown(false)}   // ✅ CLOSE DROPDOWN
                                             className="
                                             body-default block rounded-r8 px-s12 py-s6 
-                                            text-background opacity-90 hover:opacity-100 
-                                            hover:text-secondary-light transition"
+                                            text-background/80  hover:opacity-100 
+                                            hover:text-secondary-main transition"
                                         >
                                             {service.label}
                                             <span className="caption font-extrabold ml-1">
@@ -147,6 +176,8 @@ export default function Navbar() {
                     <AnimatedGavelIcon isOpen={isMenuOpen} onClick={toggleMenu} />
                 </div>
             </div>
+
+            
             {/* OVERLAY FOR MOBILE CLOSE ON OUTSIDE CLICK */}
             {isMenuOpen && (
                 <div
@@ -160,105 +191,163 @@ export default function Navbar() {
 
 
             {/* MOBILE MENU (unchanged) */}
-            <div
-                className={`absolute top-full left-0 w-full bg-primary-main text-background overflow-hidden transition-all duration-300 ease-in-out xl:hidden rounded-b-r16 shadow-2xl ${isMenuOpen ? "max-h-[85vh] py-s8" : "max-h-0 py-0"
-                    }`}
-            >
-                {/* Main Mobile Menu */}
-                <div
-                    className={`transition-transform duration-300 ${showServices ? "-translate-x-full" : "translate-x-0"
-                        }`}
-                >
-                    {navLinks.map(({ label, href }) => {
-                        const isActive = pathname === href;
-
-                        return (
-                            <div key={href} className="px-s16 py-s8">
-                                {label === "Legal Services" ? (
-                                    <button
-                                        onClick={() => setShowServices(true)}
-                                        className="flex justify-between items-center w-full px-s16 py-s8 rounded-r8 hover:bg-secondary-light hover:text-accent-main transition"
-                                    >
-                                        <span>{label}</span>
-                                        <ChevronRight size={16} />
-                                    </button>
-                                ) : (
-                                    <Link
-                                        href={href}
-                                        onClick={closeMenu}
-                                        className={`block px-s16 py-s8 rounded-r8 transition ${isActive
-                                            ? "bg-secondary-light text-accent-main"
-                                            : "hover:bg-secondary-light hover:text-accent-main"
-                                            }`}
-                                    >
-                                        {label}
-                                    </Link>
-                                )}
-
-                            </div>
-                        );
-                    })}
-                    <div className="mx-s16 my-s8">
-                        <Button
-                            href="/contact-us"
-                            variant="secondary"
-                            onClick={closeMenu}
-                            as="link"
-                            className="w-full "
-                        >
-                            Contact us
-                        </Button>
-                    </div>
-
-                </div>
-
-                {/* LEGAL SERVICES SUBMENU */}
-                <div
-                    className={`
-    fixed inset-0
-    bg-primary-main
-    transition-transform duration-300
-    ${showServices ? "translate-x-0" : "translate-x-full"}
-    h-full
-    overflow-y-auto
-    overscroll-contain
-    touch-pan-y
-    scroll-smooth
-    pb-s24
+            {/* MOBILE MENU (unchanged) */}
+<div
+  className={`
+    absolute top-full left-0 w-full
+    bg-primary-main text-background
+    overflow-hidden
+    transition-all duration-300 ease-in-out
+    xl:hidden
+    rounded-b-r16
+    shadow-2xl
+    ${
+      isMenuOpen
+        ? "max-h-[85vh] py-s8"
+        : "max-h-0 py-0"
+    }
   `}
-                >
-                    <button
-                        onClick={() => setShowServices(false)}
-                        className="flex items-center w-full gap-s8 px-s16 py-s8 hover:text-secondary-main sticky top-0 bg-primary-main "
-                    >
-                        <ChevronLeft className="w-s16 h-s16" /> Back
-                    </button>
+>
+  {/* MAIN MOBILE MENU */}
+  <div
+    className={`
+      transition-transform duration-300
+      ${
+        showServices
+          ? "-translate-x-full"
+          : "translate-x-0"
+      }
+    `}
+  >
+    {navLinks.map(({ label, href }) => {
+      const isActive = pathname === href;
 
-                    <div className="flex flex-col mt-s8 gap-s16 pb-s24">
-                        {Object.entries(services).map(([category, items]) => (
-                            <div key={category}>
-                                <h3 className="text-secondary-main title-h4 px-s16 py-s8">{category}</h3>
+      return (
+        <div key={href} className="px-s16 py-s8">
+          {label === "Legal Services" ? (
+            <button
+              onClick={() => setShowServices(true)}
+              className="
+                flex justify-between items-center
+                w-full
+                px-s16 py-s8
+                rounded-r8
+                hover:bg-secondary-dark
+                hover:text-accent-main
+                transition
+              "
+            >
+              <span>{label}</span>
+              <ChevronRight size={16} />
+            </button>
+          ) : (
+            <Link
+              href={href}
+              onClick={closeMenu}
+              className={`
+                block
+                px-s16 py-s8
+                rounded-r8
+                transition
+                ${
+                  isActive
+                    ? "bg-secondary-dark text-accent-main"
+                    : "hover:bg-secondary-dark hover:text-accent-main"
+                }
+              `}
+            >
+              {label}
+            </Link>
+          )}
+        </div>
+      );
+    })}
 
-                                {items.map(({ label, href }) => (
-                                    <Link
-                                        key={href}
-                                        href={href}
-                                        onClick={() => {
-                                            closeMenu();          // closes main menu
-                                            setShowServices(false); // closes submenu
-                                        }}
-                                        className="block px-s32 py-s8  body-default rounded-r8 transition hover:bg-secondary-light hover:text-accent-main"
-                                    >
-                                        {label}
-                                        <span className="caption font-extrabold  ml-1">↗</span>
-                                    </Link>
-                                ))}
+    {/* CONTACT BUTTON */}
+    <div className="mx-s16 my-s8">
+      <Button
+        href="/contact-us"
+        variant="secondary"
+        as="link"
+        onClick={closeMenu}
+        className="w-full"
+      >
+        Contact us
+      </Button>
+    </div>
+  </div>
 
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+  {/* LEGAL SERVICES SUBMENU */}
+  <div
+    className={`
+      fixed left-0 right-0 bottom-0 top-[0] 
+      bg-primary-main
+      transition-transform duration-300
+      ${
+        showServices
+          ? "translate-x-0"
+          : "translate-x-full"
+      }
+      min-h-screen
+      overflow-y-auto
+      overscroll-contain
+      touch-pan-y
+      scroll-smooth
+      pb-s24
+    `}
+  >
+    {/* BACK BUTTON */}
+    <button
+      onClick={() => setShowServices(false)}
+      className="
+        sticky top-0 z-10
+        flex items-center gap-s8
+        w-full
+        px-s16 py-s8
+        bg-primary-light
+        hover:text-secondary-main
+      "
+    >
+      <ChevronLeft className="w-s16 h-s16" />
+      Back
+    </button>
+
+    {/* SERVICES LIST */}
+    <div className="flex flex-col mt-s8 gap-s16 pb-s24">
+      {Object.entries(services).map(([category, items]) => (
+        <div key={category}>
+          <h3 className="title-h4 text-secondary-dark px-s16 py-s8">
+            {category}
+          </h3>
+
+          {items.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => {
+                closeMenu();
+                setShowServices(false);
+              }}
+              className="
+                block
+                px-s32 py-s8
+                body-default
+                rounded-r8
+                transition
+                hover:bg-secondary-dark
+                hover:text-accent-main
+              "
+            >
+              {label}
+              <span className="caption font-extrabold ml-1">↗</span>
+            </Link>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
         </nav>
     );
 }

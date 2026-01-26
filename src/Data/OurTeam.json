@@ -1,23 +1,43 @@
 {
-    "pageTitle": "Our Team",
-    "description": "A Professional Legal Team Focused on Clarity and Structured Guidance",
-    "section1": {
-        "heading": "A Professional Legal Team Focused on Clarity and Structured Guidance",
-        "content": "Arshiv Legal operates with a clear, disciplined approach to every matter. Our work combines careful legal assessment, responsible interpretation of statutes, and well-prepared procedural steps so clients always know where they stand and what comes next. The practice is led from the front by a dedicated legal professional who interacts directly with clients, supported by a streamlined internal system that keeps every case organised, researched, and ready for action when required."
-    },
-    "teamMember": [
-        {
-            "dpImage": "/Images/aryan.png",
-            "heading": "Aryan Pandey — Principal Legal Professional",
-            "content": "As the primary face of Arshiv Legal, he oversees the evaluation of matters, examines factual positions, and interprets the legal questions involved with precision. His approach is grounded in structured reasoning and clarity, ensuring clients receive guidance that is both practical and aligned with the law. He works closely with the internal workflow that manages background preparation, document accuracy, procedural checks, and communication with external advocates whenever deeper intervention is needed."
-        }
-    ],
-    "section3": {
-        "heading": "How the Practice Functions",
-        "content": "While clients interact primarily with the principal professional, the overall system is designed to function like a coordinated legal setup. Background work supports the front-end guidance, ensuring that matters are reviewed properly, facts are verified, and procedural steps are prepared without rush or ambiguity. This allows Arshiv Legal to maintain both accuracy and efficiency, even in time-sensitive situations."
-    },
-    "section4": {
-        "heading": "Resolved Cases & Experiences",
-        "content": "*An outline of legal matters we have handled, supported by client feedback."
-    }
+  "header": {
+    "title": "Our Team",
+    "subtitle": "With clear legal insight and swift, reliable guidance, Arshiv Legal helps you act early — while the case is still in your hands and your options are open."
+  },
+
+  "intro": {
+    "heading": "A Professional Legal Team Focused on Clarity and Structured Guidance",
+    "description": "Arshiv Legal operates with a clear, disciplined approach to every matter. Our work combines careful legal assessment, responsible interpretation of statutes, and well-prepared procedural steps so clients always know where they stand and what comes next. The practice is led from the front by a dedicated legal professional who interacts directly with clients, supported by a streamlined internal system that keeps every case organised, researched, and ready for action when required."
+  },
+
+  "leadProfile": {
+    "name": "Aryan Pandey",
+    "role": "Aryan Pandey - Principal Legal Professional",
+    "image": "/Images/profileLong-2.svg",
+    "description": "As the primary face of Arshiv Legal, he oversees the evaluation of matters, examines factual positions, and interprets legal questions with precision, ensuring clients receive structured and dependable guidance."
+  },
+
+  "practiceFlow": {
+    "title": "How the Practice Functions",
+    "subtitle": "Before we reply, sign, or explain anything — pause. One wrong step can cost you more than you think.",
+    "steps": [
+      {
+        "title": "Direct Client Guidance",
+        "description": "Clients work directly with the principal professional, ensuring clear advice, accountability, and a focused understanding of their matter."
+      },
+      {
+        "title": "Careful Internal Review",
+        "description": "Every case is supported by background checks, document review, and procedural preparation before guidance is provided."
+      },
+      {
+        "title": "Timely Handling",
+        "description": "A well-organised process ensures matters move efficiently while maintaining precision, even when time is critical."
+      }
+    ]
+  },
+  "note":"We Are Trusted By Our Clients For Effective And Clear Solutions",
+
+  "trust": {
+    "title": "We Are Trusted By Our Clients For Effective And Clear Solutions",
+    "description": "Our focus remains on clear communication, sound legal understanding, and responsible guidance. We avoid unnecessary jargon, provide straightforward explanations, and ensure that every step suggested is safe, lawful, and grounded in proper reasoning. Clients appreciate the calm, structured, and reliable manner in which their concerns are handled."
+  }
 }

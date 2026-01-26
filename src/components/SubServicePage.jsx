@@ -2,6 +2,7 @@ import React from 'react';
 import Gradient from '@/components/ui/Gradient';
 import ServiceCardSmall from '@/components/ui/ServiceCard';
 import WhyChooseUs from './WhyChooseUs';
+import Testimonials from './Testimonials';
 
 function slugify(value) {
     return String(value || '')
@@ -30,44 +31,51 @@ export default function SubServicePage({ title = '', covers = {}, cards = [], de
     const hasCards = total > 0;
 
     return (
-        <main className="space-y-s40 lg:space-y-s64">
+        <main className="space-y-[100px] md:space-y-[200px]">
             <Gradient title={title} description={description} />
+            <section className='max-w-7xl mx-auto  px-s16'>
 
-            <section className="max-w-7xl mx-auto flex flex-col px-s16 md:px-s32 gap-s40 md:gap-s64">
-                {/* WHAT THIS SERVICE COVERS (optional) */}
-                {covers?.heading && <h2 className="page-title-h2 text-accent-main">{covers.heading}</h2>}
+                {covers?.heading && <h2 className="heading-h3 text-accent-main px-s16 pb-s64 ">{covers.heading}</h2>}
                 {covers?.intro && <p className="body-large text-muted mt-s8">{covers.intro}</p>}
 
-                {/* DYNAMIC GRID */}
-                <div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-s24"
-                    aria-label={covers?.heading ? `${covers.heading} - items` : 'service items'}
-                >
-                    {hasCards ? (
-                        cards.map((card, index) => {
-                            const key = card?.id || slugify(card?.title) || `card-${index}`;
-                            const spanClass = spans[index] || 'col-span-1';
+                <div className="max-w-5xl mx-auto flex flex-col   gap-s40 md:gap-s64">
+                    {/* WHAT THIS SERVICE COVERS (optional) */}
 
-                            return (
-                                <div key={key} className={`${spanClass}`}>
-                                    <ServiceCardSmall title={card?.title} subtitle={card?.subtitle} {...(card?.props || {})} />
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <div className="col-span-full">
-                            <p className="body-large text-muted">No items available at the moment.</p>
-                        </div>
-                    )}
-                </div>
+                    {/* DYNAMIC GRID */}
+                    <div
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-s24 px-s8"
+                        aria-label={covers?.heading ? `${covers.heading} - items` : 'service items'}
+                    >
+                        {hasCards ? (
+                            cards.map((card, index) => {
+                                const key = card?.id || slugify(card?.title) || `card-${index}`;
+                                const spanClass = spans[index] || 'col-span-1';
 
-                {/* Why Choose Us - render only if component exists or if it makes sense */}
-                {WhyChooseUs ? (
-                    <div>
-                        <WhyChooseUs />
+                                return (
+                                    <div key={key} className={`${spanClass}`}>
+                                        <ServiceCardSmall title={card?.title} subtitle={card?.subtitle} {...(card?.props || {})} />
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <div className="col-span-full">
+                                <p className="body-large text-muted">No items available at the moment.</p>
+                            </div>
+                        )}
                     </div>
-                ) : null}
+
+                    {/* Why Choose Us - render only if component exists or if it makes sense */}
+
+
+                </div>
             </section>
+            <div className='max-w-7xl mx-auto px-s8'>
+                <WhyChooseUs />
+            </div>
+            <div className='bg-secondary-main py-[100px] md:py-[200px]'>
+
+                <Testimonials />
+            </div>
         </main>
     );
 }

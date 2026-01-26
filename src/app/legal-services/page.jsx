@@ -12,6 +12,8 @@ import {
   getOrganizationSchema,
   getFAQSchema,
 } from "@/utils/schema";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
 
 export const metadata = {
   title:
@@ -71,11 +73,11 @@ export default function Page() {
   const faqSchema =
     faqs.length > 0
       ? getFAQSchema(
-          faqs.map((f) => ({
-            question: f.question,
-            answer: f.answer,
-          }))
-        )
+        faqs.map((f) => ({
+          question: f.question,
+          answer: f.answer,
+        }))
+      )
       : null;
 
   const ld = [
@@ -92,10 +94,15 @@ export default function Page() {
       <Suspense fallback={<div>Loading services...</div>}>
         <PrimaryServices />
       </Suspense>
-
-      <div className="max-w-7xl w-full mx-auto space-y-s40 md:space-y-s48 lg:space-y-s64 pb-s40 md:pb-s48 lg:pb-s64">
+<div className="max-w-7xl px-s16 w-full mx-auto pb-[100px] md:pb-[200px]">
+  
+        <WhyChooseUs />
+</div>
+        <div className="bg-secondary-main px-s16 py-[100px] md:py-[200px]">
+          <Testimonials />
+        </div>
+      <div className="max-w-7xl px-s16 w-full mx-auto space-y-[100px] md:space-y-[200px] py-[100px] md:py-[200px]">
         <FaqSection faqs={faqs} />
-
         <GetInTouch
           variant="blue"
           height="470px"

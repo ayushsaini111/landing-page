@@ -7,6 +7,7 @@ export const navLinks = [
   { label: "Team", href: "/team" },
   { label: "About", href: "/about" },
 ];
+
 export const services = {
   "PUBLIC LAW": [
     {

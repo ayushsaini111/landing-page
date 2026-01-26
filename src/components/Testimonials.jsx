@@ -1,169 +1,137 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import Image from "next/image";
+import Data from "@/Data/Testimonials.json";
+import { Star } from "lucide-react";
 
-export default function Testimonials({ title, list }) {
-    const [index, setIndex] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(true);
-    const [touchStart, setTouchStart] = useState(0);
-    const [touchEnd, setTouchEnd] = useState(0);
-    const [isSliding, setIsSliding] = useState(false);
+export default function Testimonials() {
+  const { title, text, list } = Data;
 
-    const sliderRef = useRef(null);
-    const wheelTimeoutRef = useRef(null);
-    const autoSlideRef = useRef(null); // ⭐ NEW AUTO SLIDE
+  return (
+    <section
+      className="
+        w-full
+        bg-secondary-main
+        px-s8
+      "
+    >
+      <div
+        className="
+          bg-background
+          mx-auto
+          rounded-r16
+          grid
+          grid-cols-1
+          lg:grid-cols-2
+          gap-s64
+          lg:gap-s64
+          px-s16
+          sm:px-s24
+          lg:px-s64
+          py-s64
+         
+          items-center
+          max-w-[360px]
+          sm:max-w-[640px]
+          md:max-w-[900px]
+          lg:max-w-7xl
+        "
+      >
 
-    const extendedList = [...list, ...list, ...list];
-    const listLength = list.length;
-    const minSwipeDistance = 50;
+        {/* LEFT SIDE */}
+        <div
+          className="
+            max-w-sm
+            text-center
+            lg:text-left
+            mx-auto
+            flex
+            flex-col 
+            h-full
+            gap-s64 md:gap-0
+            justify-between
+            items-start
+            lg:mx-0
+          "
+        >
+          <div><h2 className="heading-h4 text-main mb-s8">
+            {title}
+          </h2>
 
-    const prevSlide = () => {
-        if (isSliding) return;
-        setIsSliding(true);
-        setIsTransitioning(true);
-        setIndex((prev) => prev - 1);
-        setTimeout(() => setIsSliding(false), 600);
-    };
+          <p className="text-md md:text-lg md:font-medium text-secondary px-s32 md:px-0  mx-auto lg:mx-0">
+            {text}
+          </p>
+          </div>
 
-    const nextSlide = () => {
-        if (isSliding) return;
-        setIsSliding(true);
-        setIsTransitioning(true);
-        setIndex((prev) => prev + 1);
-        setTimeout(() => setIsSliding(false), 600);
-    };
-
-    const onTouchStart = (e) => {
-        setTouchEnd(0);
-        setTouchStart(e.targetTouches[0].clientX);
-    };
-
-    const onTouchMove = (e) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-    };
-
-    const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-
-        const distance = touchStart - touchEnd;
-        if (distance > minSwipeDistance) nextSlide();
-        else if (distance < -minSwipeDistance) prevSlide();
-    };
-
-    const onWheel = (e) => {
-        if (isSliding) return;
-
-        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
-            e.preventDefault();
-
-            if (wheelTimeoutRef.current)
-                clearTimeout(wheelTimeoutRef.current);
-
-            wheelTimeoutRef.current = setTimeout(() => {
-                if (e.deltaX > 0) nextSlide();
-                else if (e.deltaX < 0) prevSlide();
-            }, 50);
-        }
-    };
-
-    useEffect(() => {
-        if (index >= listLength * 2) {
-            setTimeout(() => {
-                setIsTransitioning(false);
-                setIndex(listLength);
-            }, 500);
-        } else if (index < listLength) {
-            setTimeout(() => {
-                setIsTransitioning(false);
-                setIndex(listLength * 2 - 1);
-            }, 500);
-        }
-    }, [index, listLength]);
-
-    useEffect(() => {
-        const slider = sliderRef.current;
-        if (!slider) return;
-
-        slider.addEventListener("wheel", onWheel, { passive: false });
-
-        return () => {
-            slider.removeEventListener("wheel", onWheel);
-            if (wheelTimeoutRef.current) clearTimeout(wheelTimeoutRef.current);
-        };
-    }, [index, isSliding]);
-
-    // ⭐ AUTO SLIDER — Runs every 3 seconds
-    useEffect(() => {
-        if (isSliding) return; // don't auto slide while sliding
-
-        autoSlideRef.current = setTimeout(() => {
-            nextSlide();
-        }, 2000);
-
-        return () => clearTimeout(autoSlideRef.current);
-    }, [index, isSliding]);
-
-    return (
-        <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
-            <div
-                ref={sliderRef}
-                className={`flex ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
-                style={{ transform: `translateX(-${index * 100}%)` }}
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-            >
-                {extendedList.map((t, i) => (
-                    <div key={i} className="w-full shrink-0 flex justify-center p-s16">
-                        <div className="bg-secondary-light max-w-xl lg:max-w-2xl w-full p-s16 md:p-s32 space-y-s64 rounded-r16 shadow-lg">
-                            <p className="body-default md:body-large text-main mb-s32">
-                                <span className="text-accent-main body-default md:body-large">"</span>
-                                {t.text}
-                                <span className="text-accent-main body-default md:body-large">"</span>
-                            </p>
-
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-s8">
-                                    <img
-                                        src={t.image}
-                                        className="w-10 h-10 rounded-full object-cover"
-                                        alt={t.name}
-                                    />
-                                    <span className="body-default">{t.name}</span>
-                                </div>
-
-                                <div className="flex gap-1 text-accent-main">
-                                    {[...Array(t.rating)].map((_, i) => (
-                                        <Star key={i} size={16} fill="currentColor" />
-                                    ))}
-                                    {[...Array(5 - t.rating)].map((_, i) => (
-                                        <Star key={i} size={16} />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <button
-                onClick={prevSlide}
-                className="absolute top-1/2 -translate-y-1/2 text-accent-main hover:scale-110 transition -left-2 sm:-left-1"
-                aria-label="Previous testimonial"
-            >
-                <ChevronLeft size={24} className="sm:hidden" />
-                <ChevronLeft size={50} className="hidden sm:block" />
-            </button>
-
-            <button
-                onClick={nextSlide}
-                className="absolute top-1/2 -translate-y-1/2 text-accent-main hover:scale-110 transition -right-2 sm:right-1"
-                aria-label="Next testimonial"
-            >
-                <ChevronRight size={24} className="sm:hidden" />
-                <ChevronRight size={50} className="hidden sm:block" />
-            </button>
+          <Image
+            src="/images/feather pot 1.svg"
+            alt="pot"
+            width={450}
+            height={550}
+            className=""
+          />
         </div>
-    );
+
+        {/* RIGHT SIDE – CARDS */}
+        <div className="flex flex-col gap-s32 ">
+          {list.map((item, index) => (
+            <div
+              key={index}
+              className="
+                relative
+                bg-secondary-main/50
+                rounded-r16
+                p-s16
+                sm:p-s24
+                lg:p-s32
+                border-r-8
+                border-b-8
+                border-secondary-dark
+              "
+            >
+              {/* Quote */}
+              <p className="text-sm  font-secondary  md:text-[16px]  text-main  mb-s16">
+                <span className="text-2xl font-primary text-accent-main leading-0">“</span> {item.text} <span className="text-2xl font-primary text-accent-main">”</span>
+              </p>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between gap-s8 sm:gap-s16">
+                {/* Client */}
+                <div className="flex items-center gap-s12 min-w-0 ">
+<div className="shrink-0 shadow-lg rounded-full">
+  <div className="w-9 h-9 sm:w-10  shadow-lg sm:h-10 rounded-full overflow-hidden border-2 border-accent-main bg-background">
+    <Image
+      src={item.image}
+      alt={item.name}
+      width={40}
+      height={40}
+      className="object-cover"
+    />
+  </div>
+</div>
+
+
+
+                  <span className="caption font-primary text-main pl-s8">
+                    {item.name}
+                  </span>
+                </div>
+
+                {/* Stars */}
+                <div className="flex gap-1 text-accent-main shrink-0">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" />
+                  ))}
+                  {[...Array(5 - item.rating)].map((_, i) => (
+                    <Star key={i} size={14} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 }

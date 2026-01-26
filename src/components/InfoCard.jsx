@@ -1,38 +1,38 @@
 export default function InfoCard({ data, rotate = 0 }) {
   return (
     <div
+      style={{ "--r": `${rotate}deg` }}
       className="
-        bg-secondary-light
+        bg-secondary-dark
         rounded-r16
-        shadow-sm
-        px-s16 py-s24
-        sm:px-s24 sm:py-s32
-        lg:px-[24px] lg:py-[100px]
-        min-h-auto lg:min-h-[573px]
-        transition-transform
+        md:shadow-md
+        p-s24
+        lg:px-s24 lg:py-[50px]
+      
+        md:max-w-[370px]
+        transition-transform duration-300 ease-out
+        [transform:rotate(0deg)]
+        lg:[transform:rotate(var(--r))]
       "
-      style={{
-        transform: `rotate(${typeof window !== "undefined" && window.innerWidth < 1024 ? 0 : rotate}deg)`
-      }}
     >
-      <h4 className="title-h4 text-primary-main mb-s8">
+      <h4 className="heading-h5 text-accent-main mb-s8">
         {data.title}
       </h4>
 
-      <p className="body-small text-left text-secondary mb-s12">
+      <p className="body-default text-left text-main ">
         {data.description}
       </p>
 
-      <ul className="list-disc pl-s16 space-y-s6">
+      <ul className="list-disc pl-s16  ">
         {data.points.map((point, i) => (
-          <li key={i} className="body-small text-left text-secondary">
+          <li key={i} className="body-default text-left text-main">
             {point}
           </li>
         ))}
       </ul>
 
       {data.footerNote && (
-        <p className="caption text-left text-secondary mt-s12">
+        <p className="body-default text-left text-main mt-s12">
           {data.footerNote}
         </p>
       )}

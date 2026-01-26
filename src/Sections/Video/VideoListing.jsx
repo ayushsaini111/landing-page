@@ -13,6 +13,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   const [total, setTotal] = useState(0);
   const [activeQuery, setActiveQuery] = useState("");
   const [error, setError] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   const router = useRouter();
   const abortRef = useRef(null);
@@ -21,32 +22,60 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   const limit = 12;
   const isInitialLoading = items.length === 0 && !error && activeQuery === "";
 
-  const CACHE_DURATION_MAIN = 2 * 60 * 1000; // 2 minutes
-  const CACHE_DURATION_SEARCH = 10 * 60 * 1000; // 10 minutes
+  const CACHE_DURATION_MAIN = 2 * 60 * 1000;
+  const CACHE_DURATION_SEARCH = 10 * 60 * 1000;
 
   // ============================================
-  // SAVE STATE ON NAVIGATION
+  // OPTIMIZED SAVE STATE (ASYNC)
   // ============================================
+  const saveStateAsync = (itemsToSave, pageToSave, hasMoreToSave, totalToSave, queryToSave) => {
+    if (typeof window === "undefined") return;
+    
+    requestIdleCallback?.(() => {
+      try {
+        if (itemsToSave.length > 0) {
+          sessionStorage.setItem(
+            "video-listing-state",
+            JSON.stringify({
+              items: itemsToSave,
+              page: pageToSave,
+              hasMore: hasMoreToSave,
+              total: totalToSave,
+              activeQuery: queryToSave,
+            })
+          );
+        }
+      } catch (e) {
+        console.warn("Failed to save state:", e);
+      }
+    }) || setTimeout(() => {
+      try {
+        if (itemsToSave.length > 0) {
+          sessionStorage.setItem(
+            "video-listing-state",
+            JSON.stringify({
+              items: itemsToSave,
+              page: pageToSave,
+              hasMore: hasMoreToSave,
+              total: totalToSave,
+              activeQuery: queryToSave,
+            })
+          );
+        }
+      } catch (e) {
+        console.warn("Failed to save state:", e);
+      }
+    }, 0);
+  };
+
   useEffect(() => {
     const saveState = () => {
-      if (items.length > 0) {
-        sessionStorage.setItem(
-          "video-listing-state",
-          JSON.stringify({
-            items,
-            page,
-            hasMore,
-            total,
-            activeQuery,
-          })
-        );
-      }
+      saveStateAsync(items, page, hasMore, total, activeQuery);
     };
 
     window.addEventListener("beforeunload", saveState);
     return () => {
       window.removeEventListener("beforeunload", saveState);
-      saveState();
     };
   }, [items, page, hasMore, total, activeQuery]);
 
@@ -69,6 +98,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
         setHasMore(cached.hasMore);
         setPage(pageNum);
         setError(null);
+        setIsSearching(false);
         return;
       }
     }
@@ -108,6 +138,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       setHasMore(pageNum < totalPages);
       setPage(pageNum);
       setError(null);
+      setIsSearching(false);
 
       // Cache results
       if (!append) {
@@ -124,6 +155,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
         setError(err.message);
         if (!append) setItems([]);
       }
+      setIsSearching(false);
     } finally {
       setLoadingMore(false);
     }
@@ -138,17 +170,26 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   };
 
   // ============================================
-  // BACK BUTTON
+  // OPTIMIZED BACK BUTTON
   // ============================================
   const handleBack = () => {
-    sessionStorage.removeItem("video-listing-state");
-    sessionStorage.removeItem("video-scroll");
-    sessionStorage.removeItem("video-card");
-    cacheRef.current = {};
+    setIsSearching(true);
     setPage(1);
     setError(null);
     setActiveQuery("");
+    cacheRef.current = {};
     onClearSearch?.();
+    
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("video-listing-state");
+      sessionStorage.removeItem("video-scroll");
+      sessionStorage.removeItem("video-card");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("video-listing-state");
+      sessionStorage.removeItem("video-scroll");
+      sessionStorage.removeItem("video-card");
+    }, 0);
+
     fetchData(1, false, "", true);
   };
 
@@ -156,14 +197,23 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   // EXPLORE MORE
   // ============================================
   const handleExploreMore = () => {
-    sessionStorage.removeItem("video-listing-state");
-    sessionStorage.removeItem("video-scroll");
-    sessionStorage.removeItem("video-card");
-    cacheRef.current = {};
+    setIsSearching(true);
     setPage(1);
     setError(null);
     setActiveQuery("");
+    cacheRef.current = {};
     onClearSearch?.();
+    
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("video-listing-state");
+      sessionStorage.removeItem("video-scroll");
+      sessionStorage.removeItem("video-card");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("video-listing-state");
+      sessionStorage.removeItem("video-scroll");
+      sessionStorage.removeItem("video-card");
+    }, 0);
+
     fetchData(1, false, "", true);
   };
 
@@ -210,7 +260,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   }, []);
 
   // ============================================
-  // HANDLE SEARCH QUERY CHANGES
+  // HANDLE SEARCH QUERY CHANGES (WITH SKELETON)
   // ============================================
   useEffect(() => {
     if (initialMountRef.current) return;
@@ -218,7 +268,14 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
     setPage(1);
     setActiveQuery(searchQuery);
     setError(null);
-    sessionStorage.removeItem("video-listing-state");
+    setIsSearching(true);
+    
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("video-listing-state");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("video-listing-state");
+    }, 0);
+    
     fetchData(1, false, searchQuery, true);
 
     return () => {
@@ -264,7 +321,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
         <div >
           <span
             onClick={handleBack}
-            className="text-accent-main cursor-pointer hover:underline"
+            className="text-accent-main cursor-pointer hover:underline pl-s24"
           >
             ← Back
           </span>
@@ -272,7 +329,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       )}
 
       {/* LOADING STATE */}
-      {isInitialLoading && (
+      {(isInitialLoading || isSearching) && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-s64 gap-y-s64 py-s32 justify-items-center">
           {[...Array(8)].map((_, i) => (
             <CardSkeleton key={i} isVideo={true} />
@@ -281,7 +338,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       )}
 
       {/* NO RESULTS */}
-      {activeQuery && items.length === 0 && !error && !isInitialLoading && (
+      {activeQuery && items.length === 0 && !error && !isInitialLoading && !isSearching && (
         <div className="flex flex-col items-center justify-center my-s48 text-center">
           <svg
             className="w-24 h-24 text-gray-300 mb-4"
@@ -309,7 +366,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       )}
 
       {/* GRID */}
-      {items.length > 0 && (
+      {items.length > 0 && !isSearching && (
         <div className="w-full grid gap-x-s64 py-s64 gap-y-s64 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {items.map((item) => (
             <div
@@ -335,7 +392,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       )}
 
       {/* LOAD MORE BUTTON */}
-      {hasMore && items.length > 0 && (
+      {hasMore && items.length > 0 && !isSearching && (
         <div className="flex justify-center mt-12">
           <Button
             onClick={handleLoadMore}
@@ -348,7 +405,7 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
       )}
 
       {/* ALL LOADED MESSAGE */}
-      {!hasMore && items.length > 0 && (
+      {!hasMore && items.length > 0 && !isSearching && (
         <div className="text-center mt-12 text-disabled">
           All items loaded ({items.length} of {total})
         </div>

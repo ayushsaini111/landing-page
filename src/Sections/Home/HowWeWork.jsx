@@ -57,7 +57,7 @@ export default function HowWeWork() {
             className="max-w-7xl relative overflow-hidden  space-y-s24 lg:space-y-s32 z-10"
         >
             {/* Heading */}
-            <h2 className="page-title-h2 text-accent-main">{heading}</h2>
+            <h2 className="heading-h4 text-primary-main">{heading}</h2>
             <p className="body-large mb-s16">{description}</p>
             {/* Cards Container */}
             <div

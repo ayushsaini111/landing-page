@@ -1,23 +1,24 @@
 {
-    "title": "What Clients Say",
-    "list": [
-        {
-            "name": "Jaspreet Singh",
-            "text": "When I received a legal notice, I was quite confused and anxious. Reaching out to Arshiv Legal helped calm things down. They explained the situation clearly and helped me understand what actually mattered, which made the next steps much easier to handle",
-            "rating": 5,
-            "image": "/Images/client-3.webp"
-        },
-        {
-            "name": "Himanshu Shukla",
-            "text": "Guidance was sought to determine whether the matter required formal legal action. Arshiv Legal assessed the situation objectively, explained the legal position with clarity, and outlined the available options without pressure. The consultation brought reassurance and a clear direction for proceeding responsibly.",
-            "rating": 5,
-            "image": "/Images/client-1.webp"
-        },
-        {
-            "name": "Raunak Gupta",
-            "text": "I reached out to Arshiv Legal for help with reviewing some documents. The guidance was thoughtful and easy to follow. It felt good to have someone explain things properly instead of making it sound complicated or intimidating.",
-            "rating": 5,
-            "image": "/Images/client-2.webp"
-        }
-    ]
+  "title": "Resolved Cases & Experiences",
+  "text": "An outline of legal matters we have handled, supported by client feedback.",
+  "list": [
+    {
+      "name": "Jaspreet Singh",
+      "text": "When I received a legal notice, I was quite confused and anxious. Reaching out to Arshiv Legal helped calm things down. They explained the situation clearly and helped me understand what actually mattered, which made the next steps much easier to handle.",
+      "rating": 3,
+      "image": "/Images/client-3.webp"
+    },
+    {
+      "name": "Himanshu Shukla",
+      "text": "Guidance was sought to determine whether the matter required formal legal action. Arshiv Legal assessed the situation objectively, explained the legal position with clarity, and outlined the available options without pressure. The consultation brought reassurance and a clear direction for proceeding responsibly.",
+      "rating": 4,
+      "image": "/Images/client-1.webp"
+    },
+    {
+      "name": "Raunak Gupta",
+      "text": "I reached out to Arshiv Legal for help with reviewing some documents. The guidance was thoughtful and easy to follow. It felt good to have someone explain things properly instead of making it sound complicated or intimidating.",
+      "rating": 5,
+      "image": "/Images/client-2.webp"
+    }
+  ]
 }

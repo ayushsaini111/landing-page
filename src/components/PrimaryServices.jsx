@@ -35,24 +35,24 @@ export default function PrimaryServices() {
 
 
     return (
-        <section className="w-full flex flex-col items-center">
+        <section className="w-full flex flex-col  items-center ">
 
             <Gradient title={title} description={description} />
 
-            <div className="w-full max-w-7xl space-y-s16 md:space-y-s32 py-s40 md:py-s48 lg:py-s64">
+            <div className="w-full max-w-7xl space-y-s16 px-s32 md:space-y-s32 py-[100px] md:py-[200px]">
                 {Object.entries(services).map(([category, items]) => (
                     <div
                         key={category}
                         ref={(el) => (categoryRefs.current[category] = el)} // store refs
                         className="w-full"
                     >
-                        <h2 className="page-title-h2 text-accent-main mb-s16">
+                        <h2 className="heading-h4 text-accent-main mb-s16">
                             {category}
                         </h2>
 
-                        <ul className="ml-s32 list-disc space-y-s8">
+                        <ul className="ml-s48 list-disc space-y-s8">
                             {items.map((item, idx) => (
-                                <li key={idx} className="text-main body-default">
+                                <li key={idx} className="text-main text-lg font-primary md:text-2xl md:font-medium md:leading-relaxed">
                                     <Link
                                         href={item.href}
                                         className="hover:text-accent-main transition-colors"

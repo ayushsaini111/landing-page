@@ -13,6 +13,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const [total, setTotal] = useState(0);
   const [activeQuery, setActiveQuery] = useState("");
   const [error, setError] = useState(null);
+  const [isSearching, setIsSearching] = useState(false);
   const isInitialLoading = items.length === 0 && !error && activeQuery === "";
 
   const router = useRouter();
@@ -25,28 +26,56 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const CACHE_DURATION_SEARCH = 15 * 60 * 1000;
 
   // ============================================
-  // SAVE STATE ON NAVIGATION
+  // OPTIMIZED SAVE STATE (ASYNC)
   // ============================================
+  const saveStateAsync = (itemsToSave, pageToSave, hasMoreToSave, totalToSave, queryToSave) => {
+    if (typeof window === "undefined") return;
+    
+    requestIdleCallback?.(() => {
+      try {
+        if (itemsToSave.length > 0) {
+          sessionStorage.setItem(
+            "blog-listing-state",
+            JSON.stringify({
+              items: itemsToSave,
+              page: pageToSave,
+              hasMore: hasMoreToSave,
+              total: totalToSave,
+              activeQuery: queryToSave,
+            })
+          );
+        }
+      } catch (e) {
+        console.warn("Failed to save state:", e);
+      }
+    }) || setTimeout(() => {
+      try {
+        if (itemsToSave.length > 0) {
+          sessionStorage.setItem(
+            "blog-listing-state",
+            JSON.stringify({
+              items: itemsToSave,
+              page: pageToSave,
+              hasMore: hasMoreToSave,
+              total: totalToSave,
+              activeQuery: queryToSave,
+            })
+          );
+        }
+      } catch (e) {
+        console.warn("Failed to save state:", e);
+      }
+    }, 0);
+  };
+
   useEffect(() => {
     const saveState = () => {
-      if (items.length > 0) {
-        sessionStorage.setItem(
-          "blog-listing-state",
-          JSON.stringify({
-            items,
-            page,
-            hasMore,
-            total,
-            activeQuery,
-          })
-        );
-      }
+      saveStateAsync(items, page, hasMore, total, activeQuery);
     };
 
     window.addEventListener("beforeunload", saveState);
     return () => {
       window.removeEventListener("beforeunload", saveState);
-      saveState();
     };
   }, [items, page, hasMore, total, activeQuery]);
 
@@ -69,6 +98,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
         setHasMore(cached.hasMore);
         setPage(pageNum);
         setError(null);
+        setIsSearching(false);
         return;
       }
     }
@@ -132,6 +162,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       setHasMore(pageNum < totalPages);
       setPage(pageNum);
       setError(null);
+      setIsSearching(false);
 
       // Cache results
       if (!append) {
@@ -148,6 +179,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
         setError(err.message);
         if (!append) setItems([]);
       }
+      setIsSearching(false);
     } finally {
       setLoadingMore(false);
     }
@@ -162,17 +194,30 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   };
 
   // ============================================
-  // BACK BUTTON
+  // OPTIMIZED BACK BUTTON (NON-BLOCKING)
   // ============================================
   const handleBack = () => {
-    sessionStorage.removeItem("blog-listing-state");
-    sessionStorage.removeItem("blog-scroll");
-    sessionStorage.removeItem("blog-card");
-    cacheRef.current = {};
+    setIsSearching(true);
+    
+    // Clear storage asynchronously
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("blog-listing-state");
+      sessionStorage.removeItem("blog-scroll");
+      sessionStorage.removeItem("blog-card");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("blog-listing-state");
+      sessionStorage.removeItem("blog-scroll");
+      sessionStorage.removeItem("blog-card");
+    }, 0);
+
+    // Update state immediately for UI responsiveness
     setPage(1);
     setError(null);
     setActiveQuery("");
     onClearSearch?.();
+    cacheRef.current = {};
+    
+    // Fetch immediately without waiting for storage
     fetchData(1, false, "", true);
   };
 
@@ -180,14 +225,24 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   // EXPLORE MORE
   // ============================================
   const handleExploreMore = () => {
-    sessionStorage.removeItem("blog-listing-state");
-    sessionStorage.removeItem("blog-scroll");
-    sessionStorage.removeItem("blog-card");
-    cacheRef.current = {};
+    setIsSearching(true);
+    
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("blog-listing-state");
+      sessionStorage.removeItem("blog-scroll");
+      sessionStorage.removeItem("blog-card");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("blog-listing-state");
+      sessionStorage.removeItem("blog-scroll");
+      sessionStorage.removeItem("blog-card");
+    }, 0);
+
     setPage(1);
     setError(null);
     setActiveQuery("");
     onClearSearch?.();
+    cacheRef.current = {};
+    
     fetchData(1, false, "", true);
   };
 
@@ -234,7 +289,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   }, []);
 
   // ============================================
-  // HANDLE SEARCH QUERY CHANGES
+  // HANDLE SEARCH QUERY CHANGES (WITH SKELETON)
   // ============================================
   useEffect(() => {
     if (initialMountRef.current) return;
@@ -242,7 +297,15 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
     setPage(1);
     setActiveQuery(searchQuery);
     setError(null);
-    sessionStorage.removeItem("blog-listing-state");
+    setIsSearching(true);
+    
+    // Clear storage async
+    requestIdleCallback?.(() => {
+      sessionStorage.removeItem("blog-listing-state");
+    }) || setTimeout(() => {
+      sessionStorage.removeItem("blog-listing-state");
+    }, 0);
+    
     fetchData(1, false, searchQuery, true);
 
     return () => {
@@ -288,7 +351,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
         <div>
           <span
             onClick={handleBack}
-            className="text-accent-main cursor-pointer hover:underline"
+            className="text-accent-main cursor-pointer hover:underline pl-s24"
           >
             ← Back
           </span>
@@ -296,7 +359,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       )}
 
       {/* LOADING STATE */}
-      {isInitialLoading && (
+      {(isInitialLoading || isSearching ) && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-s64 gap-y-s64 py-s32 justify-items-center">
           {[...Array(8)].map((_, i) => (
             <CardSkeleton key={i} isVideo={false} />
@@ -305,7 +368,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       )}
 
       {/* NO RESULTS */}
-      {activeQuery && items.length === 0 && !error && !isInitialLoading && (
+      {activeQuery && items.length === 0 && !error && !isInitialLoading && !isSearching && (
         <div className="flex flex-col items-center justify-center my-s48 text-center">
           <svg
             className="w-24 h-24 text-gray-300 mb-4"
@@ -333,7 +396,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       )}
 
       {/* GRID */}
-      {items.length > 0 && (
+      {items.length > 0 && !isSearching && (
         <div className="w-full grid gap-x-s64 gap-y-s64 grid-cols-1 py-s32 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {items.map((item) => (
             <div
@@ -358,7 +421,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       )}
 
       {/* LOAD MORE BUTTON */}
-      {hasMore && items.length > 0 && (
+      {hasMore && items.length > 0 && !isSearching && (
         <div className="flex justify-center mt-12">
           <Button
             onClick={handleLoadMore}
@@ -371,7 +434,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
       )}
 
       {/* ALL LOADED MESSAGE */}
-      {!hasMore && items.length > 0 && (
+      {!hasMore && items.length > 0 && !isSearching && (
         <div className="text-center mt-12 text-disabled">
           All items loaded ({items.length} of {total})
         </div>

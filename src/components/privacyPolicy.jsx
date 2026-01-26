@@ -15,11 +15,11 @@ export default function PrivacyPolicy() {
             <section className="max-w-5xl mx-auto px-s16 md:px-s32 space-y-s40 lg:space-y-s64">
 
                 {/* TITLE */}
-                <h1 className="page-title-h2 text-primary-main">{title}</h1>
+                <h1 className="heading-h1 text-primary-main">{title}</h1>
                 <p className="caption text-secondary">Last Updated: {lastUpdated}</p>
 
                 {/* INTRO */}
-                <div className="space-y-s16 body-large">
+                <div className="space-y-s16 body-default">
                     <p>
                         {introBlock[0]}
                         <span className="text-accent-main">{Note.link}</span>
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
                 </div>
 
                 {/* NOTICE BOX */}
-                <div className="bg-secondary-light border-l-4 border-accent-main p-s16 rounded-r8">
+                <div className="bg-secondary-dark border-l-4 border-accent-main p-s16 rounded-r8">
                     <p className="body-default text-accent-main">{notice}</p>
                 </div>
 
@@ -38,14 +38,14 @@ export default function PrivacyPolicy() {
                     <div key={sec.number} className="space-y-s24">
 
                         {/* SECTION HEADING */}
-                        <h2 className="subheading-h3 flex items-center">
+                        <h2 className="heading-h3 flex items-center">
                             <span>{sec.number}.&nbsp;</span>
                             {sec.heading}
                         </h2>
 
                         {/* PARAGRAPHS */}
                         {sec.paragraphs && (
-                            <div className="space-y-s8 body-large">
+                            <div className="space-y-s8 body-default">
                                 {sec.paragraphs.map((p, i) => (
                                     <p key={i}>{p}</p>
                                 ))}
@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
 
                         {/* BULLETS */}
                         {sec.bullets && (
-                            <ul className="list-disc pl-s24 space-y-s8 body-large">
+                            <ul className="list-disc pl-s24 space-y-s8 body-default">
                                 {sec.bullets.map((b, i) =>
                                     Array.isArray(b) ? (
                                         b.map((child, j) => <li key={`${i}-${j}`}>{child}</li>)
@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
                                     <h3 className="title-h4">{sub.title}</h3>
 
                                     {sub.paragraphs && (
-                                        <div className="space-y-s8 body-large">
+                                        <div className="space-y-s8 body-default">
                                             {sub.paragraphs.map((sp, j) => (
                                                 <p key={j}>{sp}</p>
                                             ))}
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
                                     )}
 
                                     {sub.bullets && (
-                                        <ul className="list-disc pl-s24 space-y-s8 body-large">
+                                        <ul className="list-disc pl-s24 space-y-s8 body-default">
                                             {sub.bullets.map((sb, j) => (
                                                 <li key={j}>{sb}</li>
                                             ))}
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
                                     )}
 
                                     {sub.lower && (
-                                        <p className="body-large text-main">{sub.lower}</p>
+                                        <p className="body-default text-main">{sub.lower}</p>
                                     )}
 
                                 </div>
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
                         {sec.colored && (
                             <div className="space-y-s12">
                                 {sec.colored.map((c, i) => (
-                                    <p key={i} className="body-large text-accent-main">
+                                    <p key={i} className="body-default text-accent-main">
                                         {c}
                                     </p>
                                 ))}
@@ -128,7 +128,7 @@ export default function PrivacyPolicy() {
                         {sec.lower && (
                             <div className="space-y-s12">
                                 {sec.lower.map((c, i) => (
-                                    <p key={i} className="body-large">
+                                    <p key={i} className="body-default">
                                         {c}
                                     </p>
                                 ))}

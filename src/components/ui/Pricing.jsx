@@ -14,18 +14,18 @@ export default function PricingCard({
 
     return (
         <div
-            className={`max-w-[350px] min-h-[350px] rounded-r16 p-s16 md:p-s24 flex flex-col gap-s16 transition-all duration-300
+            className={`max-w-[350px] min-h-[350px] rounded-r16 p-s16 md:p-s24 flex flex-col gap-s16 transition-all duration-300 shadow-lg
         ${isStandard
                     ? "bg-background border border-primary-main shladow-sm "
-                    : "bg-primary-main text-secondary-light"}
+                    : "bg-primary-main text-secondary-dark"}
                     `}
         >
 
-            <div className="flex flex-col gap-s6 md:gap-s8 lg:gap-s16">
+            <div className="flex flex-col gap-s16 md:gap-s8 lg:gap-s16">
                 {/* Title */}
                 <h2
                     className={`
-          page-title-h2 flex items-center justify-center
+          heading-h4 flex items-center justify-center
           ${isStandard
                             ? "text-accent-main text-center"
                             : "text-background text-center"}
@@ -38,7 +38,7 @@ export default function PricingCard({
                 {/* Price */}
                 <p
                     className={`
-          body-small text-left w-full
+          caption text-left w-full
           ${isStandard ? "text-main" : "text-background"}
         `}
                 >
@@ -48,7 +48,7 @@ export default function PricingCard({
                 <div
                     className={`
           w-full h-[1px]
-          ${isStandard ? "bg-primary-main" : "bg-secondary-light"}
+          ${isStandard ? "bg-primary-main" : "bg-secondary-main"}
         `}
                 ></div>
                 {/* Details */}

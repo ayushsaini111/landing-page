@@ -4,7 +4,7 @@ export default function ServiceCardSmall({ title, subtitle }) {
     return (
         <div
             className="
-        bg-secondary-light
+        bg-secondary-main
         p-s16
         flex-col
         rounded-r16
@@ -12,11 +12,11 @@ export default function ServiceCardSmall({ title, subtitle }) {
         border-2
         border-b-8
         h-full
-        border-accent-main
+        border-primary-main
         w-full cursor-pointer
         "
         >
-            <h3 className="title-h4 text-primary-main">{title}</h3>
+            <h3 className="text-xl font-medium font-primary md:text-2xl md:font-medium leading-relaxed text-primary-main">{title}</h3>
             <p className="body-default text-seconadry">{subtitle}</p>
         </div>
     );
@@ -27,7 +27,7 @@ export function ServiceCardSmallll({ title, subtitle }) {
     return (
         <div
             className="
-        bg-secondary-light
+        bg-secondary-dark
         p-s16
         rounded-r16
         border-2 border-b-8

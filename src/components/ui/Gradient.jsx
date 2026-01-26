@@ -4,16 +4,16 @@ function Gradient({ title, description }) {
     return (
         <div
             className="
-    w-full h-[300px]  md:h-[450px]
-    bg-[linear-gradient(180deg,var(--background)_0%,var(--primary-main)_50%,var(--background)_100%)]
+    w-full mt-[66px] md:mt-[83px] py-[50px] md:py-[100px] 
+    bg-secondary-main
     flex items-center justify-center
     "
         >
-            <section className="max-w-7xl flex flex-col gap-s8 mx-auto text-center px-s16">
-                <h1 className="hero-h1 text-secondary-light">
+            <section className="max-w-7xl flex flex-col px-s32 gap-s16 md:gap-s24 mx-auto text-center ">
+                <h1 className="text-3xl leading-tight  font-bold md:text-5xl md:leading-relaxed font-primary  text-primary-main">
                     {title}
                 </h1>
-                <p className='body-large text-background '>{description}</p>
+                <p className='text-sm md:text-lg md:font-medium md:leading-relaxed text-center text-main max-w-3xl mx-auto'>{description}</p>
             </section>
         </div>
     )

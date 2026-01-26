@@ -5,7 +5,7 @@ import { footerItem } from "@/Data/FooterItem";
 const link = footerItem[0].footerlInk;
 export default function Footer() {
     return (
-        <footer className="bg-secondary-light text-accent-main py-s40 px-s32 space-y-s24 md:space-y-s48 lg:space-y-s64">
+        <footer className="bg-secondary-main text-accent-main py-s40 px-s32 space-y-s24 md:space-y-s48 lg:space-y-s64">
             {/* 🔷 Top Section (Logo + Columns) */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-s24 md:gap-s48 lg:gap-s64">
                 {/* 🟦 Logo Section */}
@@ -23,7 +23,7 @@ export default function Footer() {
                 {footerItem.map((section, index) => (
                     <div key={index} className="flex flex-col gap-s16">
                         <h4 className="font-semibold title-h4 text-accent-main">{section.item}</h4>
-                        <ul className="flex flex-col gap-s8 text-disable body-default">
+                        <ul className="flex flex-col gap-s8 text-secondary body-default">
                             {section.subItem.map((sub, i) => (
                                 <li key={i}>
                                     <Link

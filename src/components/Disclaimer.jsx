@@ -102,12 +102,12 @@ export default function DisclaimerGate({
 
             {/* Slide-up drawer (full width up to 7xl) */}
             <div
-                className="relative animate-slideUp  bg-secondary-light max-w-4xl rounded-r8 flex-col  space-y-s16   text-left  p-s32"
+                className="relative animate-slideUp  bg-secondary-dark max-w-4xl rounded-t-r8 flex-col  space-y-s16   text-left  p-s24 md:p-s32"
                 style={{ touchAction: "none" }}
             >
 
 
-                <h2 id="disclaimer-title" className="page-title-h2 ">
+                <h2 id="disclaimer-title" className="heading-h2 text-primary-main ">
                     Disclaimer
                 </h2>
 
@@ -116,7 +116,12 @@ export default function DisclaimerGate({
                     purposes only and does not constitute legal advice.
                 </p>
 
-                <Button onClick={accept} children={"Accept"} className="" />
+                <div className="flex justify-end">
+                    <Button onClick={accept}>
+                        Accept
+                    </Button>
+                </div>
+
             </div>
         </div>
     );

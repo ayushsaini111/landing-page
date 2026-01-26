@@ -65,12 +65,14 @@ const Secondary = Source_Sans_3({
 export default function RootLayout({ children }) {
   return (
     <html lang="en-IN">
-      <body className={` ${Primary.variable}${Secondary.variable} antialiased`}>
+      <body className={` ${Primary.variable}${Secondary.variable} antialiased `}>
         {/* Global Organization Schema - Appears on every page */}
         <JsonLd data={getOrganizationSchema()} />
         <DisclaimerGate />
         <Navbar />
-        {children}
+     
+                  {children}
+                
         <Footer />
       </body>
     </html>

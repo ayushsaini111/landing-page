@@ -102,21 +102,28 @@ export default function Page() {
         <>
             <JsonLd data={[pageSchema, websiteSchema, faqSchema].filter(Boolean)} />
 
-            <main role="main" className="w-full lg:py-s64 lg:px-s64">
-                <section aria-labelledby="hero-heading">
+            <main role="main" className="w-full mt-[66px] md:mt-[83px] ">
+                <section aria-labelledby="hero-heading ">
                     <HeroSection />
                 </section>
-                <div className="max-w-7xl mx-auto flex flex-col space-y-s64 px-s32 py-s64">
+
+                <div className="max-w-7xl mx-auto flex flex-col px-s16 md:px-s32 py-[100px] md:py-[200px]">
                     {/* Hero: keep server-rendered for SEO / LCP */}
 
                     <section aria-labelledby="about-heading">
                         <AboutSection />
                     </section>
+                </div>
+
+                <div className="bg-secondary-main ">
 
                     <section aria-labelledby="dont-hesitate-heading">
                         <DontHesitateSection />
                     </section>
+                </div>
 
+
+                <div className="bg-secondary-main space-y-[100px]  md:space-y-[200px] py-[100px] md:py-[200px] px-s24 md:px-s32">
                     <section aria-labelledby="services-heading">
                         <ServicesSection />
                     </section>
@@ -125,7 +132,9 @@ export default function Page() {
                     <section aria-labelledby="case-study-heading">
                         <CaseStudy />
                     </section>
+                </div>
 
+                <div className="max-w-7xl mx-auto flex flex-col space-y-[100px]  md:space-y-[200px] px-s16 md:px-s32 py-[100px] md:py-[200px]">
                     <section aria-labelledby="why-choose-us-heading">
                         <WhyChooseUs />
                     </section>
@@ -133,19 +142,20 @@ export default function Page() {
                     <section aria-labelledby="pricing-heading">
                         <PricingSection />
                     </section>
+                </div>
+                <section
+                    className="bg-secondary-main py-[100px] md:py-[200px] px-s16 md:px-s32"
+                    aria-labelledby="testimonial-heading"
+                >
 
-                    <section
-                        className="space-y-s24 md:space-y-s32"
-                        aria-labelledby="testimonial-heading"
-                    >
-                        <h2 className="text-accent-main page-title-h2">Testimonials</h2>
-                        <Testimonials list={testimonial?.list || []} />
-                    </section>
+                    <Testimonials list={testimonial?.list || []} />
+                </section>
 
-                    {/* <section aria-labelledby="how-we-work-heading">
+                {/* <section aria-labelledby="how-we-work-heading">
                         <HowWeWork />
                     </section> */}
-
+                    
+                <div className="max-w-7xl mx-auto flex flex-col space-y-[100px]  md:space-y-[200px] py-[100px] md:py-[200px] px-s16 md:px-s32">
                     <section aria-labelledby="faq-heading">
                         <FaqSection faqs={faqs} />
                     </section>

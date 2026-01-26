@@ -150,11 +150,11 @@ export default async function Page() {
     ...(faqSchema ? [faqSchema] : []),
   ];
 
-  return (
-    <main className="space-y-s40 lg:space-y-s64">
+ return (
+    <main >
       <JsonLd data={ld} />
 
-      <section className="flex flex-col gap-s40 md:gap-s64">
+      <section className="flex flex-col gap-[100px] md:gap-[200px]">
         <SubServicePage
           title={data.title}
           description={data.description}

@@ -16,12 +16,12 @@ export default function ServicesSection() {
     const matters = services[selectedLaw.title?.toUpperCase()] || [];
 
     return (
-        <section>
+        <section className="max-w-7xl mx-auto bg-background p-s16 py-s64 space-y-[50px] md:py-[200px] md:space-y-[100px] rounded-r16">
             {/* HEADING */}
-            <h2 className="subheading-h3 mb-s24 lg:mb-s32">
-                <span className="text-accent-main">{arrow}</span>{topHeading}
+            <h2 className="heading-h2  text-center md:text-left md:pl-s24">
+                <span className="text-accent-main heading-h3 ">{arrow}</span> {topHeading}
             </h2>
-            <div className="flex flex-col items-center gap-s16">
+            <div className="flex flex-col items-center gap-s24">
                 {/* DYNAMIC SERVICE CARD */}
                 <div className="w-full">
                     <ServiceCard
@@ -33,10 +33,10 @@ export default function ServicesSection() {
                     />
                 </div>
                 {/* TABS */}
-                <div className="w-full max-w-4xl">
+                <div className="w-full max-w-4xl ">
                     {/* MOBILE → horizontal scroll */}
-                    <div className="md:hidden w-full px-s16 overflow-x-auto scrollbar-hide">
-                        <div className="flex gap-3 min-w-max">
+                    <div className="md:hidden w-full px-s6 overflow-x-auto scrollbar-hide">
+                        <div className="flex gap-s8 min-w-max pl-s16 ">
                             {tabs.map((tab) => (
                                 <Button
                                     key={tab.slug}

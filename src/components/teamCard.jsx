@@ -20,7 +20,7 @@ export default function TeamCard({ image, heading, content, imagePosition = "lef
 
                 {/* CARD */}
                 <div className={`w-full px-s16 lg:px-0 ${isRight ? '-translate-y-s56 lg:translate-x-s56 lg:translate-y-0' : '-translate-y-s56 lg:-translate-x-s56 lg:translate-y-0 '}`}>
-                    <div className="relative z-20 bg-secondary-light rounded-r16 shadow-lg p-s16 lg:p-s32  space-y-s16">
+                    <div className="relative z-20 bg-secondary-dark rounded-r16 shadow-lg p-s16 lg:p-s32  space-y-s16">
                         <h2 className="page-title-h2 text-accent-main">{heading}</h2>
                         <p className="body-large">{content}</p>
                     </div>

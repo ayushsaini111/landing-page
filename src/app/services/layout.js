@@ -12,7 +12,7 @@ export default function ServicesLayout({ children }) {
 
             {/* Persistent CTA – placed in an aside for clearer semantics and accessibility */}
             <aside aria-label="contact call to action" className="bg-transparent">
-                <div className="max-w-7xl mx-auto px-s16 md:px-s32 py-s40 md:py-s64">
+                <div className="max-w-7xl mx-auto px-s16 md:px-s32 py-[100px] md:py-[200px]">
                     <GetInTouch
                         variant="blue"
                         height="470px"

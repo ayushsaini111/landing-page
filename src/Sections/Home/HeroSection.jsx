@@ -10,12 +10,12 @@ export default function Hero() {
         <section>
             {/* -------------------- MOBILE VIEW -------------------- */}
             {/* MOBILE VIEW */}
-            <div className="lg:hidden flex flex-col items-center">
+            <div className="lg:hidden flex flex-col justify-center items-center " >
                 {/* IMAGE + GRADIENT */}
                 <div className="relative max-w-lg overflow-hidden flex justify-center">
                     <div className="relative flex justify-center">
                         <video
-                            src="/Images/hero-m.mp4"
+                            src="/Images/website.webm"
 
                             autoPlay
                             loop
@@ -29,15 +29,15 @@ export default function Hero() {
                             className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
                             style={{
                                 height: "400px",
-                                background: `linear-gradient(to bottom,rgba(255,250,238,0) 30%,rgba(255,250,238,0.8) 60%,rgba(255,250,238,1) 65%,rgba(255,250,238,1) 100%)`,
+                                background: `linear-gradient(to bottom,rgba(255,250,238,0) 30%,rgba(255, 254, 249, 1) 60%,rgba(255, 254, 249, 1) 65%,rgba(255, 254, 249, 1) 100%)`,
                             }}
                         />
                     </div>
                 </div>
                 {/* TEXT CONTENT */}
-                <div className="relative -mt-50 w-full text-center space-y-s16 z-10 px-s16 md:px-s32">
-                    <h1 className="hero-h1 text-primary-main">{hero.mainHeading}</h1>
-                    <p className="body-large text-secondary">
+                <div className="relative -mt-50 w-full text-center space-y-s24 z-10 px-s32 md:px-s32">
+                    <h1 className="heading-h1  text-primary-main ">{hero.mainHeading}</h1>
+                    <p className="heading-h6 text-main">
                         {hero.subHeading}
                     </p>
                     <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us" />
@@ -46,15 +46,15 @@ export default function Hero() {
 
 
             {/* -------------------- DESKTOP VIEW -------------------- */}
-            <div className="hidden bg-gradient-to-r from-secondary-light/40  to-background lg:flex max-w-[1600px]  rounded-2xl mx-auto items-center justify-between px-s32 md:p-s48">
+            <div className="hidden bg-gradient-to-r from-secondary-dark  to-background lg:flex   mx-auto items-center justify-between px-s48 py-48 md:p-s48">
                 <div className="max-w-2xl space-y-s16">
                     <h1
-                        className="hero-h1 text-primary-main"
+                        className="heading-h1 text-primary-main"
                         dangerouslySetInnerHTML={{
                             __html: hero.mainHeading.replace(/\.\s*/g, ".<br/>")
                         }}
                     />
-                    <p className="body-large text-secondary">
+                    <p className="heading-h6 text-main">
                         {hero.subHeading}
                     </p>
                     <Button children={hero.ctaButton} variant={"ctaAccent"} as="link" href="/contact-us" />

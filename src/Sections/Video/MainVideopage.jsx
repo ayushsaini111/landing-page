@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "@/components/ui/SearchBar";
 import VideoListingPage from "./VideoListing";
+import Gradient from "@/components/ui/Gradient";
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,17 +32,26 @@ export default function Page() {
   };
 
   return (
-    <main className="w-full bg-background py-s32 px-s32">
+    <main className="w-full bg-background  ">
+      <Gradient title={"Daily Legal Content"} description={"With clear legal insight and swift, reliable guidance, Arshiv Legal helps you act early — while the case is still in your hands and your options are open."} />
+
+      <div className=''>
+
+        <div className=" pb-[50px] mb-s16 bg-secondary-main">
       <SearchBar
         items={videos}
         onSearch={handleSearch}
         placeholder="Search daily videos..."
       />
+    </div>
+
 
       <VideoListingPage 
         searchQuery={searchQuery} 
         onClearSearch={handleClearSearch}
       />
+      </div>
+
     </main>
   );
 }

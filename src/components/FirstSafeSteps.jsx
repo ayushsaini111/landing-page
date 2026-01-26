@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function FirstSafeSteps({ title, steps }) {
     return (
-        <div className="max-w-7xl mx-auto space-y-s24 px-s16 lg:px-0 ">
-            <h2 className="subheading-h3 text-accent-main ">
+        <div className="max-w-7xl mx-auto space-y-s24  lg:px-0 typography-md">
+            <h2 className="heading-h4 text-accent-main ">
                 {title}
             </h2>
 
@@ -13,20 +13,20 @@ export default function FirstSafeSteps({ title, steps }) {
                         key={index}
                         className=""
                     >
-                        <div className="flex bg-secondary-light rounded-r16 mb-s24">
+                        <div className="flex  min-h-[10vh] items-center bg-secondary-main rounded-r16 mb-s24">
 
-                            <div className="flex justify-center items-center bg-accent-main rounded-l-r16 p-[20px] gap-s6">
+                            <div className="flex justify-center min-h-[10vh]  items-center bg-primary-main rounded-l-r16 p-s16 gap-s6">
                                 <Image
                                     src={step.icon}
                                     alt={step.title}
                                     width={24}
                                     height={24}
                                     priority
-                                    className="shrink-0"
+                                    className=""
                                 />
-                                <p className="title-h4 text-background">{step.title}</p>
+                                <p className="text-sm md:text-xl md:font-medium  text-background ">{step.title}</p>
                             </div>
-                            <div className="p-[20px] body-large text-secondary">{step.description}</div>
+                            <div className="px-s8 md:px-s16 text-sm md:text-xl md:font-medium  text-secondary">{step.description}</div>
 
                         </div>
 

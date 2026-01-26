@@ -31,24 +31,26 @@ export default function Page() {
     setSearchQuery("");
   };
 
-    return (
-        <div className="w-full">
-            <Gradient title={"Blog"} description={"description"} />
-            <div className='pb-s40 md:pb-s48 lg:pb-s64 px-s16 md:px-s32'>
-                <div className="my-s16">
-                    <SearchBar
-        items={blogs}
-        onSearch={handleSearch}
-        placeholder="Search blogs..."
-      />
-                </div>
-                <BlogVideoListingPage 
-                searchQuery={searchQuery} 
-                onClearSearch={handleClearSearch}
-                />
-            </div>
+  return (
+    <div className="w-full">
+      <Gradient title={"Blog"} description={"With clear legal insight and swift, reliable guidance, Arshiv Legal helps you act early — while the case is still in your hands and your options are open."} />
+      <div className='pb-s40 md:pb-s48 lg:pb-s64 px-s16 md:px-0 '>
+
+        <div className=" bg-secondary-main mb-s16 pb-[50px]">
+          <SearchBar
+            items={blogs}
+            onSearch={handleSearch}
+            placeholder="Search blogs..."
+          />
         </div>
-    );
+
+        <BlogVideoListingPage
+          searchQuery={searchQuery}
+          onClearSearch={handleClearSearch}
+        />
+      </div>
+    </div>
+  );
 }
 
 

@@ -36,8 +36,8 @@ const testimonialRaw = Data?.testimonials;
 const testimonials = Array.isArray(testimonialRaw)
   ? testimonialRaw
   : Array.isArray(testimonialRaw?.list)
-  ? testimonialRaw.list
-  : [];
+    ? testimonialRaw.list
+    : [];
 
 // Metadata
 export const metadata = {
@@ -95,11 +95,11 @@ export default function ContactPage() {
   const faqSchema =
     initialFaqs.length > 0
       ? getFAQSchema(
-          initialFaqs.map((f) => ({
-            question: f.question,
-            answer: f.answer,
-          }))
-        )
+        initialFaqs.map((f) => ({
+          question: f.question,
+          answer: f.answer,
+        }))
+      )
       : null;
 
   const ld = [
@@ -128,24 +128,26 @@ export default function ContactPage() {
 
   return (
     <main
-      className="space-y-s40 md:space-y-s48 lg:space-y-s64"
+      className="space-y-s40 md:space-y-s48 lg:space-y-s64 "
       role="main"
       aria-label="contact page"
     >
       <JsonLd data={ld} />
-      <Gradient title={contactSection.title} />
+     <Gradient title={contactSection.title} />
 
-      <section className="max-w-7xl mx-auto px-s16 md:px-s32 space-y-s40 md:space-y-s48 lg:space-y-s64">
-        <h2 className="page-title-h2 text-primary-main">
-          {contactSection.subtitle}
-        </h2>
+      <section className="max-w-7xl  mx-auto px-s16 space-y-[100px] md:space-y-[150px] ">
+        <div className="space-y-s16 md:space-y-s40 px-s16">
+          <h2 className="heading-h2 text-primary-main">
+            {contactSection.subtitle}
+          </h2>
+          <p className="text-md md:text-lg md:font-medium">{contactSection.description}</p>
 
-        <p className="body-large">{contactSection.description}</p>
+        </div>
 
         {/* CONTACT BOX */}
-        <div className="max-w-5xl flex flex-col mx-auto md:flex-row bg-secondary-main/20 p-s24 md:p-s32 rounded-r16 gap-s32 shadow">
+        <div id="contact-form" className="max-w-5xl flex flex-col mx-auto md:flex-row bg-secondary-main p-s24 md:p-s64 rounded-r16 gap-s32 shadow">
           {/* LEFT */}
-          <div className="md:w-1/2 title-h4 space-y-s24">
+          <div className="md:w-1/2 heading-h4 space-y-s24">
             <h3 className="text-primary-main">
               {contactSection.address.title}
             </h3>
@@ -179,15 +181,16 @@ export default function ContactPage() {
         <ContactMap embedUrl={contactSection.map?.embedUrl} />
 
         {/* TESTIMONIALS */}
-        <div className="space-y-s24 md:space-y-s32">
-          <h2 className="text-accent-main page-title-h2">Testimonials</h2>
+      </section >
+      <div className="space-y-[100px] md:space-y-[200px] py-[100px] md:py-[200px]">
+        <div className="py-[100px] md:py-[200px] px-s16 bg-secondary-main">
           <Testimonials list={testimonials} />
         </div>
-      </section>
 
-      {/* FAQ */}
-      <div className="max-w-7xl mx-auto px-s16 md:px-s32 pb-s40 md:pb-s48 lg:pb-s64">
-        <FaqSection faqs={initialFaqs} />
+        {/* FAQ */}
+        <div className="max-w-7xl mx-auto px-s16 md:px-s32 pb-s40 md:pb-s48 lg:pb-s64">
+          <FaqSection faqs={initialFaqs} />
+        </div>
       </div>
     </main>
   );

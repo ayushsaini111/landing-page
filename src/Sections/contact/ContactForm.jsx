@@ -6,8 +6,30 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema } from "@/validators/contact.validator";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactForm({ formData }) {
+    const searchParams = useSearchParams();
+const scrollTarget = searchParams.get("scroll"); // "contact"
+
+useEffect(() => {
+  if (scrollTarget === "contact") {
+    const el = document.getElementById("contact-form");
+    if (!el) return;
+
+    const NAV_HEIGHT = 100; // same as your services page
+
+    const y =
+      el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  }
+}, [scrollTarget]);
+
     const {
         register,
         handleSubmit,
@@ -48,11 +70,12 @@ export default function ContactForm({ formData }) {
     };
 
     return (
-        <form
+        <form 
+        
             onSubmit={handleSubmit(onSubmit)}
             className=" rounded-r16 space-y-s16"
         >
-            <h3 className="title-h4 text-primary-main">{formData.title}</h3>
+            <h3 className="heading-h4 text-primary-main">{formData.title}</h3>
 
             <Input
                 label={formData.fields.name}
@@ -85,7 +108,7 @@ export default function ContactForm({ formData }) {
                     {...register("query")}
                     placeholder="Describe about your case"
                     className="
-            border-2 bg-secondary-light mt-2 border-accent-main
+            border-2 bg-secondary-dark mt-2 border-accent-main
             rounded-r8 p-s16 w-full h-32 outline-none
             focus:ring-2 focus:ring-accent-main
           "
