@@ -64,7 +64,7 @@ export default function Testimonials() {
           </div>
 
           <Image
-            src="/images/feather pot 1.svg"
+            src="/Images/feather pot 1.svg"
             alt="pot"
             width={450}
             height={550}
