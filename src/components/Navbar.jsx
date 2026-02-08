@@ -45,7 +45,7 @@ export default function Navbar() {
     return (
         <nav
             className={`
-                        fixed top-0 left-0 w-full z-50
+                        fixed z-500 top-0 left-0 w-full z-50
                         flex justify-between items-center
                         px-s16 md:px-s24 lg:px-s32
                         py-s8 lg:py-s16 body-default transition-colors duration-300

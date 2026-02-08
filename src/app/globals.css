@@ -121,7 +121,7 @@
 
 .heading-h6 {
     @apply font-medium;
-    font-size: clamp(1rem, 1vw + 1rem, 1.25rem);
+    font-size: clamp(1rem, 0.4vw + 9rem, 1.25rem);
     /* 16px → 20px */
     line-height: clamp(1.25, 0.4vw + 1, 1.4);
 }
