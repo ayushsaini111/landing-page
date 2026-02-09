@@ -34,25 +34,34 @@ export default function Hero() {
     <section>
       {/* ---------------- MOBILE ---------------- */}
       <div className="lg:hidden flex flex-col items-center">
-       <div className="relative w-[520px] h-[520px] overflow-hidden bg-transparent">
-  {supportsWebM && !isSafari ? (
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="hero-video absolute inset-0 w-full h-full scale-[1.25]"
-    >
-      <source src="/Images/hellfire.webm" type="video/webm" />
-    </video>
-  ) : (
-    <img
-      src="/Images/statue-web.webp" // MUST be animated WebP
-      alt=""
-      className="hero-video absolute inset-0 w-full h-full scale-[1.25]"
-    />
-  )}
-</div>
+        <div className="relative max-w-lg w-full overflow-hidden bg-background">
+          {!isSafari ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="hero-video w-full h-[400px] object-contain scale-[1.35] origin-top"
+            >
+              <source src="/Images/website.webm" type="video/webm" />
+            </video>
+          ) : (
+            <img
+              src="/Images/statue-web.webp"
+              alt="Lady Justice"
+              className="hero-video w-full h-[400px] object-contain scale-[1.35] origin-top"
+            />
+          )}
+
+          {/* Gradient overlay */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(255,250,238,0) 30%, rgba(255,254,249,1) 65%, rgba(255,254,249,1) 100%)",
+            }}
+          />
+        </div>
 
         {/* Text */}
         <div className="relative -mt-40 text-center px-s32 space-y-s24 z-10">
@@ -100,7 +109,7 @@ export default function Hero() {
               loop
               muted
               playsInline
-              className="hero-video "
+              className="hero-video"
             >
               <source src="/Images/hellfire.webm" type="video/webm" />
             </video>
@@ -108,7 +117,6 @@ export default function Hero() {
             <img
               src="/Images/statue-web.webp"
               alt=""
-              autoPlay
               className="hero-video "
             />
           )}
