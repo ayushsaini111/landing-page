@@ -403,7 +403,7 @@ console.log("BLOG ITEM:", items);
         <div
   key={item._id}
   onClick={() => {
-    if (!item?.slug) return;   // HARD BLOCK
+       // HARD BLOCK
 
     sessionStorage.setItem("blog-scroll", window.scrollY.toString());
     sessionStorage.setItem("blog-card", item.slug);
@@ -418,7 +418,6 @@ console.log("BLOG ITEM:", items);
                 description={item.description}
                 duration={item.duration}
                 variant={item.type}
-                slug={item.slug}
                 id={item._id}
               />
             </div>
