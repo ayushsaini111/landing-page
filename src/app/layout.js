@@ -65,6 +65,23 @@ const Secondary = Source_Sans_3({
 export default function RootLayout({ children }) {
   return (
     <html lang="en-IN">
+    <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/hellfire.webm"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/statue-web.webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/innPot"
+        />
+    </head>
       <body className={` ${Primary.variable}${Secondary.variable} antialiased `}>
         {/* Global Organization Schema - Appears on every page */}
         <JsonLd data={getOrganizationSchema()} />

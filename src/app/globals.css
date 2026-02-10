@@ -193,6 +193,27 @@ img {
 }
 
 .safari-only { display: none; }
+ 
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  background: transparent !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+/* Safari video black background override */
+video {
+  background: transparent !important;
+}
+
+
 
 @supports (-webkit-touch-callout: none) {
   .webm { display: none; }
