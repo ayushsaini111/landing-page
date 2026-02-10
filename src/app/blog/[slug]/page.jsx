@@ -1,7 +1,11 @@
-import BlogContentPage from "@/Sections/Blog/BlogContentPage";
+"use client";
 
-export default async function Page({ params }) {
-  const { slug } = await params;
+import BlogContentPage from "@/Sections/Blog/BlogContentPage";
+import { useParams } from "next/navigation";
+
+export default function Page() {
+  const params = useParams();
+  const slug = params?.slug;
 
   return <BlogContentPage slug={slug} />;
 }
