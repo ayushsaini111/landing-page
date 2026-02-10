@@ -10,67 +10,67 @@ export default function BlogContentPage({ slug }) {
 
     console.log("slug param:", slug);
 
+const router = useRouter();
+  const [blog, setBlog] = useState(null);
+  const [showCopied, setShowCopied] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const router = useRouter();
+  const cacheRef = useRef({});
+  const abortRef = useRef(null);
 
-    const [blog, setBlog] = useState(null);
-    const [showCopied, setShowCopied] = useState(false);
+  useEffect(() => {
+    async function fetchBlog() {
+      if (!slug) {
+        setLoading(false);
+        return; // ✓ Guard clause
+      }
 
-    const cacheRef = useRef({});
-    const abortRef = useRef(null);
+      if (cacheRef.current[slug]) {
+        setBlog(cacheRef.current[slug]);
+        setLoading(false);
+        return;
+      }
 
-    useEffect(() => {
-        async function fetchBlog() {
-            if (!slug) return;
+      if (abortRef.current) abortRef.current.abort();
+      abortRef.current = new AbortController();
 
-            // 🔥 Instant cache hit
-            if (cacheRef.current[slug]) {
-                setBlog(cacheRef.current[slug]);
-                return;
-            }
-
-            // Cancel old request
-            if (abortRef.current) abortRef.current.abort();
-            abortRef.current = new AbortController();
-
-            try {
-                console.log("temp slug:", slug);
-                const res = await fetch(
-
-                `${process.env.NEXT_PUBLIC_BASE_URL}/api/blog/slug/${slug}`,
-                {
-                    signal: abortRef.current.signal,
-                    cache: "no-cache" // more reliable for SSR
-                }
+      try {
+        setLoading(true);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/blog/slug/${slug}`,
+          {
+            signal: abortRef.current.signal,
+            cache: "no-cache",
+          }
         );
 
-    console.log("API response:", res);
+        if (!res.ok) throw new Error(`Failed to fetch blog: ${res.status}`);
 
-    if (!res.ok) throw new Error("Failed to fetch blog");
+        const result = await res.json();
+        const blogData = result?.data;
 
-    const result = await res.json();
-    console.log("Parsed blog:", result);
+        if (!blogData) throw new Error("Missing blog data in response");
 
-    const blogData = result?.data;
-
-    if (!blogData) throw new Error("Missing blog data");
-
-    cacheRef.current[slug] = blogData;
-    setBlog(blogData);
-
-} catch (err) {
-    if (err.name !== "AbortError") {
-        console.error("Fetch error:", err);
+        cacheRef.current[slug] = blogData;
+        setBlog(blogData);
+        setError(null);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Fetch error:", err);
+          setError(err.message);
+        }
+      } finally {
+        setLoading(false);
+      }
     }
-}
-    }
 
-fetchBlog();
+    fetchBlog();
 
-return () => {
-    if (abortRef.current) abortRef.current.abort();
-};
-  }, [slug]);
+    return () => {
+      if (abortRef.current) abortRef.current.abort();
+    };
+  }, [slug]); // ✓ slug as dependency
 
 const handleShare = async () => {
     const shareUrl = `${window.location.origin}/blog/${slug}`;
