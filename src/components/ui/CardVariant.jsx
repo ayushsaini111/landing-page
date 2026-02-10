@@ -9,6 +9,7 @@ export default function CardVariant({
     duration,
     variant = "blog",
     id,
+    slug,
     redirectUrl,
 }) {
     const isVideo = variant === "video" || variant === "youtube" || variant === "instagram" || variant === "facebook";
@@ -19,7 +20,7 @@ export default function CardVariant({
         // Determine share URL
         const shareUrl = isVideo
             ? redirectUrl
-            : `${window.location.origin}/blog/${id}`;
+            : `${window.location.origin}/blog/${slug}`;
 
         // Try native share API first
         if (navigator.share) {

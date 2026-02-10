@@ -21,7 +21,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const cacheRef = useRef({});
   const initialMountRef = useRef(true);
   const limit = 12;
-console.log("BLOG ITEM:", item);
+console.log("BLOG ITEM:", items);
 
   const CACHE_DURATION_MAIN = 5 * 60 * 1000;
   const CACHE_DURATION_SEARCH = 15 * 60 * 1000;
@@ -400,20 +400,25 @@ console.log("BLOG ITEM:", item);
       {items.length > 0 && !isSearching && (
         <div className="w-full grid gap-x-s64 gap-y-s64 grid-cols-1 py-s32 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {items.map((item) => (
-            <div
-              key={item._id}
-              onClick={() => {
-                sessionStorage.setItem("blog-scroll", window.scrollY.toString());
-                sessionStorage.setItem("blog-card", item.slug);
-                router.push(`/blog/${item.slug}`);
-              }}
-            >
+        <div
+  key={item._id}
+  onClick={() => {
+    if (!item?.slug) return;   // HARD BLOCK
+
+    sessionStorage.setItem("blog-scroll", window.scrollY.toString());
+    sessionStorage.setItem("blog-card", item.slug);
+
+    router.push(`/blog/${item.slug}`);
+  }}
+>
+
               <CardVariant
                 image={item.thumbnail}
                 title={item.title}
                 description={item.description}
                 duration={item.duration}
                 variant={item.type}
+                slug={item.slug}
                 id={item._id}
               />
             </div>
