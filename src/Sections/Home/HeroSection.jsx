@@ -35,6 +35,7 @@ export default function Hero() {
 
                             autoPlay
                             loop
+                            preload="auto"
                             muted
                             playsInline
                             alt="Lady Justice"
@@ -77,7 +78,7 @@ export default function Hero() {
                 </div>
                 <div className="relative w-[800px] aspect-[3/4] overflow-hidden">
                     {supportsWebM && !isSafari ? (
-                        <video autoPlay loop muted playsInline className="hero-video">
+                        <video autoPlay loop muted playsInline preload="auto" className="hero-video">
                             <source src="/Images/hellfire.webm" type="video/webm" />
                         </video>
                     ) : (
@@ -85,6 +86,7 @@ export default function Hero() {
                             src="/Images/statue-web.webp"
                             className="hero-video"
                             alt=""
+                            preload="auto"
                         />
                     )}
                 </div>

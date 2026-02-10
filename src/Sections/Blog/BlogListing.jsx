@@ -15,7 +15,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const [error, setError] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const isInitialLoading = items.length === 0 && !error && activeQuery === "";
-
+ 
   const router = useRouter();
   const abortRef = useRef(null);
   const cacheRef = useRef({});

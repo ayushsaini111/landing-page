@@ -5,9 +5,10 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Share2, Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-export default function BlogContentPage({ params }) {
-  const { slug } = React.use(params);
+import { useParams } from "next/navigation";
+export default function BlogContentPage() {
+    const params = useParams();
+  const slug = params?.slug;
   console.log("slug param:", slug);
 
 

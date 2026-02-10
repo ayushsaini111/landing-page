@@ -68,18 +68,18 @@ export default function RootLayout({ children }) {
     <head>
         <link
           rel="preload"
-          as="image"
-          href="/hellfire.webm"
+          as="video"
+          href="/Images/hellfire.webm"
         />
         <link
           rel="preload"
           as="image"
-          href="/statue-web.webp"
+          href="/Images/statue-web.webp"
         />
         <link
           rel="preload"
           as="image"
-          href="/innPot"
+          href="/Images/inkPot.png"
         />
     </head>
       <body className={` ${Primary.variable}${Secondary.variable} antialiased `}>
