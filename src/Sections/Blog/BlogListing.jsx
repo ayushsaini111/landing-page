@@ -21,6 +21,7 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const cacheRef = useRef({});
   const initialMountRef = useRef(true);
   const limit = 12;
+console.log("BLOG ITEM:", item);
 
   const CACHE_DURATION_MAIN = 5 * 60 * 1000;
   const CACHE_DURATION_SEARCH = 15 * 60 * 1000;
