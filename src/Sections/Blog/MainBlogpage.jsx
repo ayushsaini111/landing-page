@@ -8,7 +8,7 @@ export default function Page() {
   const [searchQuery, setSearchQuery] = useState("");
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-
+//fgd
   useEffect(() => {
     setLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog?limit=100`)
