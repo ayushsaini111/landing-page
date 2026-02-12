@@ -144,7 +144,7 @@ export default function SearchBar({
             value={term}
             onChange={(e) => setTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent outline-none"
+            className="flex-1 bg-transparent outline-none min-w-0"
           />
 
           <Button onClick={() => executeSearch(term)}>Search</Button>

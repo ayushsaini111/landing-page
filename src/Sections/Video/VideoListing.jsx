@@ -31,41 +31,46 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
   const saveStateAsync = (itemsToSave, pageToSave, hasMoreToSave, totalToSave, queryToSave) => {
     if (typeof window === "undefined") return;
     
-    requestIdleCallback?.(() => {
-      try {
-        if (itemsToSave.length > 0) {
-          sessionStorage.setItem(
-            "video-listing-state",
-            JSON.stringify({
-              items: itemsToSave,
-              page: pageToSave,
-              hasMore: hasMoreToSave,
-              total: totalToSave,
-              activeQuery: queryToSave,
-            })
-          );
-        }
-      } catch (e) {
-        console.warn("Failed to save state:", e);
+  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+  window.requestIdleCallback(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
       }
-    }) || setTimeout(() => {
-      try {
-        if (itemsToSave.length > 0) {
-          sessionStorage.setItem(
-            "video-listing-state",
-            JSON.stringify({
-              items: itemsToSave,
-              page: pageToSave,
-              hasMore: hasMoreToSave,
-              total: totalToSave,
-              activeQuery: queryToSave,
-            })
-          );
-        }
-      } catch (e) {
-        console.warn("Failed to save state:", e);
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  });
+} else {
+  setTimeout(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
       }
-    }, 0);
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  }, 0);
+}
+
   };
 
   useEffect(() => {
@@ -180,15 +185,46 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
     cacheRef.current = {};
     onClearSearch?.();
     
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("video-listing-state");
-      sessionStorage.removeItem("video-scroll");
-      sessionStorage.removeItem("video-card");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("video-listing-state");
-      sessionStorage.removeItem("video-scroll");
-      sessionStorage.removeItem("video-card");
-    }, 0);
+  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+  window.requestIdleCallback(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  });
+} else {
+  setTimeout(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  }, 0);
+}
+
 
     fetchData(1, false, "", true);
   };
@@ -204,15 +240,46 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
     cacheRef.current = {};
     onClearSearch?.();
     
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("video-listing-state");
-      sessionStorage.removeItem("video-scroll");
-      sessionStorage.removeItem("video-card");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("video-listing-state");
-      sessionStorage.removeItem("video-scroll");
-      sessionStorage.removeItem("video-card");
-    }, 0);
+ if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+  window.requestIdleCallback(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  });
+} else {
+  setTimeout(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  }, 0);
+}
+
 
     fetchData(1, false, "", true);
   };
@@ -270,11 +337,46 @@ export default function VideoListingPage({ searchQuery = "", onClearSearch }) {
     setError(null);
     setIsSearching(true);
     
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("video-listing-state");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("video-listing-state");
-    }, 0);
+   if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+  window.requestIdleCallback(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  });
+} else {
+  setTimeout(() => {
+    try {
+      if (itemsToSave.length > 0) {
+        sessionStorage.setItem(
+          "video-listing-state",
+          JSON.stringify({
+            items: itemsToSave,
+            page: pageToSave,
+            hasMore: hasMoreToSave,
+            total: totalToSave,
+            activeQuery: queryToSave,
+          })
+        );
+      }
+    } catch (e) {
+      console.warn("Failed to save state:", e);
+    }
+  }, 0);
+}
+
     
     fetchData(1, false, searchQuery, true);
 

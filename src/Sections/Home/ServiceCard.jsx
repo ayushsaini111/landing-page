@@ -26,7 +26,7 @@ export default function ServiceCard({
             </div>
             {/* RIGHT CARD */}
             <div
-                className="bg-background w-fit h-full rounded-r16  flex flex-col justify-between gap-s16 p-s16 md:p-s24 lg:p-s32 shadow-[inset_4px_4px_6px_rgba(0,0,0,0.25),inset_-4px_-4px_6px_rgba(0,0,0,0.25)]">
+                className="bg-background w-fit h-full rounded-r16  flex flex-col justify-between gap-s16 p-s16 md:p-s24 lg:p-s32 ">
                 <h2 className="heading-h4 text-accent-main">
                     {title}
                 </h2>

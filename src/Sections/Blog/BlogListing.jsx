@@ -21,6 +21,14 @@ export default function BlogVideoListingPage({ searchQuery = "", onClearSearch }
   const cacheRef = useRef({});
   const initialMountRef = useRef(true);
   const limit = 12;
+  const safeIdleCallback = (callback) => {
+  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+    window.requestIdleCallback(callback);
+  } else {
+    setTimeout(callback, 0);
+  }
+};
+
 console.log("BLOG ITEM:", items);
 
   const CACHE_DURATION_MAIN = 5 * 60 * 1000;
@@ -32,41 +40,25 @@ console.log("BLOG ITEM:", items);
   const saveStateAsync = (itemsToSave, pageToSave, hasMoreToSave, totalToSave, queryToSave) => {
     if (typeof window === "undefined") return;
     
-    requestIdleCallback?.(() => {
-      try {
-        if (itemsToSave.length > 0) {
-          sessionStorage.setItem(
-            "blog-listing-state",
-            JSON.stringify({
-              items: itemsToSave,
-              page: pageToSave,
-              hasMore: hasMoreToSave,
-              total: totalToSave,
-              activeQuery: queryToSave,
-            })
-          );
-        }
-      } catch (e) {
-        console.warn("Failed to save state:", e);
-      }
-    }) || setTimeout(() => {
-      try {
-        if (itemsToSave.length > 0) {
-          sessionStorage.setItem(
-            "blog-listing-state",
-            JSON.stringify({
-              items: itemsToSave,
-              page: pageToSave,
-              hasMore: hasMoreToSave,
-              total: totalToSave,
-              activeQuery: queryToSave,
-            })
-          );
-        }
-      } catch (e) {
-        console.warn("Failed to save state:", e);
-      }
-    }, 0);
+safeIdleCallback(() => {
+  try {
+    if (itemsToSave.length > 0) {
+      sessionStorage.setItem(
+        "blog-listing-state",
+        JSON.stringify({
+          items: itemsToSave,
+          page: pageToSave,
+          hasMore: hasMoreToSave,
+          total: totalToSave,
+          activeQuery: queryToSave,
+        })
+      );
+    }
+  } catch (e) {
+    console.warn("Failed to save state:", e);
+  }
+});
+
   };
 
   useEffect(() => {
@@ -201,15 +193,24 @@ console.log("BLOG ITEM:", items);
     setIsSearching(true);
     
     // Clear storage asynchronously
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("blog-listing-state");
-      sessionStorage.removeItem("blog-scroll");
-      sessionStorage.removeItem("blog-card");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("blog-listing-state");
-      sessionStorage.removeItem("blog-scroll");
-      sessionStorage.removeItem("blog-card");
-    }, 0);
+safeIdleCallback(() => {
+  try {
+    if (itemsToSave.length > 0) {
+      sessionStorage.setItem(
+        "blog-listing-state",
+        JSON.stringify({
+          items: itemsToSave,
+          page: pageToSave,
+          hasMore: hasMoreToSave,
+          total: totalToSave,
+          activeQuery: queryToSave,
+        })
+      );
+    }
+  } catch (e) {
+    console.warn("Failed to save state:", e);
+  }
+});
 
     // Update state immediately for UI responsiveness
     setPage(1);
@@ -228,15 +229,25 @@ console.log("BLOG ITEM:", items);
   const handleExploreMore = () => {
     setIsSearching(true);
     
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("blog-listing-state");
-      sessionStorage.removeItem("blog-scroll");
-      sessionStorage.removeItem("blog-card");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("blog-listing-state");
-      sessionStorage.removeItem("blog-scroll");
-      sessionStorage.removeItem("blog-card");
-    }, 0);
+safeIdleCallback(() => {
+  try {
+    if (itemsToSave.length > 0) {
+      sessionStorage.setItem(
+        "blog-listing-state",
+        JSON.stringify({
+          items: itemsToSave,
+          page: pageToSave,
+          hasMore: hasMoreToSave,
+          total: totalToSave,
+          activeQuery: queryToSave,
+        })
+      );
+    }
+  } catch (e) {
+    console.warn("Failed to save state:", e);
+  }
+});
+
 
     setPage(1);
     setError(null);
@@ -301,11 +312,25 @@ console.log("BLOG ITEM:", items);
     setIsSearching(true);
     
     // Clear storage async
-    requestIdleCallback?.(() => {
-      sessionStorage.removeItem("blog-listing-state");
-    }) || setTimeout(() => {
-      sessionStorage.removeItem("blog-listing-state");
-    }, 0);
+   safeIdleCallback(() => {
+  try {
+    if (itemsToSave.length > 0) {
+      sessionStorage.setItem(
+        "blog-listing-state",
+        JSON.stringify({
+          items: itemsToSave,
+          page: pageToSave,
+          hasMore: hasMoreToSave,
+          total: totalToSave,
+          activeQuery: queryToSave,
+        })
+      );
+    }
+  } catch (e) {
+    console.warn("Failed to save state:", e);
+  }
+});
+
     
     fetchData(1, false, searchQuery, true);
 

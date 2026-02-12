@@ -28,29 +28,43 @@ export default function Hero() {
             {/* MOBILE VIEW */}
             <div className="lg:hidden flex flex-col justify-between items-center " >
                 {/* IMAGE + GRADIENT */}
-                <div className="relative max-w-lg overflow-hidden flex justify-center">
-                    <div className="relative flex justify-center">
-                        <video
-                            src="/Images/website.webm"
+               <div className="relative max-w-lg overflow-hidden flex justify-center">
+  <div className="relative flex justify-center">
+    {supportsWebM && !isSafari ? (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="w-full h-[400px] object-cover scale-[1.35] origin-top"
+      >
+        <source src="/Images/website.webm" type="video/webm" />
+      </video>
+    ) : (
+      <img
+        src="/Images/statue-web.webp"
+        alt="Lady Justice"
+        className="w-full  h-[400px] object-cover scale-[1.35] origin-top"
+      />
+    )}
 
-                            autoPlay
-                            loop
-                            preload="auto"
-                            muted
-                            playsInline
-                            alt="Lady Justice"
-                            className="w-full h-[400px] object-cover scale-[1.35] origin-top"
-                        />
-                        {/* GRADIENT OVERLAY */}
-                        <div
-                            className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
-                            style={{
-                                height: "400px",
-                                background: `linear-gradient(to bottom,rgba(255,250,238,0) 30%,rgba(255, 254, 249, 1) 60%,rgba(255, 254, 249, 1) 65%,rgba(255, 254, 249, 1) 100%)`,
-                            }}
-                        />
-                    </div>
-                </div>
+    {/* GRADIENT OVERLAY */}
+    <div
+      className="absolute bottom-0 left-0 right-0 pointer-events-none"
+      style={{
+        height: "400px",
+        background: `linear-gradient(
+          to bottom,
+          rgba(255,250,238,0) 30%,
+          rgba(255,254,249,1) 60%,
+          rgba(255,254,249,1) 100%
+        )`,
+      }}
+    />
+  </div>
+</div>
+
                 {/* TEXT CONTENT */}
                 <div className="relative -mt-50 w-full text-center space-y-s24 z-10 px-s32 md:px-s32">
                     <h1 className="heading-h1  text-primary-main ">{hero.mainHeading}</h1>

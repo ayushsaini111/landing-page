@@ -37,7 +37,7 @@ export default function Page() {
 
       <div className=''>
 
-        <div className=" pb-[50px] mb-s16 bg-secondary-main">
+        <div className=" pb-[50px] px-s24 mb-s16 bg-secondary-main">
       <SearchBar
         items={videos}
         onSearch={handleSearch}
